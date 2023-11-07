@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.EventSystems;
 using static ArrowTranslator;
 
 public class MouseController : MonoBehaviour
@@ -31,11 +32,11 @@ public class MouseController : MonoBehaviour
 
     void LateUpdate()
     {
-        if ((turnManager.isPlayerTurn || turnManager.isStart) && !turnManager.isAbilitySelected)
+        if ((turnManager.isPlayerTurn || turnManager.isStart) && !turnManager.isAbilitySelected && !EventSystem.current.IsPointerOverGameObject())
         {
             RaycastHit2D? hit = GetFocusedOnTile();
 
-            if (hit.HasValue)
+            if (hit.HasValue && !EventSystem.current.IsPointerOverGameObject())
             {
                 OverlayTile tile = hit.Value.collider.gameObject.GetComponent<OverlayTile>();
                 cursor.transform.position = tile.transform.position;
@@ -81,6 +82,7 @@ public class MouseController : MonoBehaviour
             if (path.Count > 0 && isMoving)
             {
                 MoveAlongPath();
+                HideAllArrows();
             }
         }
     }
@@ -90,14 +92,29 @@ public class MouseController : MonoBehaviour
         var step = speed * Time.deltaTime;
 
         float zIndex = path[0].transform.position.z;
+        Vector3 temp = character.transform.position;
         character.transform.position = Vector2.MoveTowards(character.transform.position, path[0].transform.position, step);
         character.transform.position = new Vector3(character.transform.position.x, character.transform.position.y, zIndex);
+
+        if (temp.x < path[0].transform.position.x)
+        {
+            character.GetComponent<PlayerMove>().FlipDirection(1);
+        }
+        else if (temp.x > path[0].transform.position.x)
+        {
+            character.GetComponent<PlayerMove>().FlipDirection(-1);
+        }
+        else
+        {
+            character.GetComponent<PlayerMove>().FlipDirection(0);
+        }
 
         // When character reaches destination
         if (Vector2.Distance(character.transform.position, path[0].transform.position) < 0.00001f)
         {
             PositionCharacterOnLine(path[0]);
             path.RemoveAt(0); // delete path
+
         }
 
         if (path.Count == 0)
@@ -130,28 +147,44 @@ public class MouseController : MonoBehaviour
         return null;
     }
 
-    private void GetInRangeTiles()
+    public void GetInRangeTiles()
     {
+        Debug.Log(turnManager.remainingMovePts);
         rangeFinderTiles = rangeFinder.GetTilesInRange(new Vector2Int(character.standingOnTile.gridLocation.x, character.standingOnTile.gridLocation.y), turnManager.remainingMovePts);
 
         if ((turnManager.isPlayerTurn || turnManager.isStart) && !turnManager.isAbilitySelected)
         {
             foreach (var item in rangeFinderTiles)
             {
+                Debug.Log("Reveal Tile");
                 item.ShowTile();
             }
-        } 
+        }
     }
 
     public void HideInRangeTiles()
     {
+        Debug.Log(turnManager.remainingMovePts);
+        rangeFinderTiles = rangeFinder.GetTilesInRange(new Vector2Int(character.standingOnTile.gridLocation.x, character.standingOnTile.gridLocation.y), turnManager.remainingMovePts);
+
+        if ((turnManager.isEnemyTurn || turnManager.isEnemyTurn || turnManager.isStart) && !turnManager.isAbilitySelected)
+        {
+            foreach (var item in rangeFinderTiles)
+            {
+                item.HideTile();
+            }
+        }
+    }
+
+    public void HideAllArrows()
+    {
         rangeFinderTiles = rangeFinder.GetTilesInRange(new Vector2Int(character.standingOnTile.gridLocation.x, character.standingOnTile.gridLocation.y), turnManager.remainingMovePts);
 
         if ((turnManager.isPlayerTurn || turnManager.isStart) && !turnManager.isAbilitySelected)
         {
             foreach (var item in rangeFinderTiles)
             {
-                item.HideTile();
+                item.HideArrow();
             }
         }
     }

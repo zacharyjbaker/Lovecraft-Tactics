@@ -35,6 +35,11 @@ public class OverlayTile : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.15f);
     }
 
+    public void HideArrow()
+    {
+        GetComponentsInChildren<SpriteRenderer>()[1].color = new Color(1, 1, 1, 0);
+    }
+
     public void SetSprite(ArrowDirection d)
     {
         if (d == ArrowDirection.None)
@@ -46,5 +51,7 @@ public class OverlayTile : MonoBehaviour
             GetComponentsInChildren<SpriteRenderer>()[1].sortingOrder = gameObject.GetComponent<SpriteRenderer>().sortingOrder;
         }
     }
+
+
 
 }

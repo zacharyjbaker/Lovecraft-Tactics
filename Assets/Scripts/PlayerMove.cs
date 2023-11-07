@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
@@ -66,5 +67,17 @@ public class PlayerMove : MonoBehaviour
         //Debug.Log(movement);
 
         rigid.MovePosition(rigid.position + movement * moveSpeed * Time.fixedDeltaTime);
+    }
+
+    public void FlipDirection(int direction)
+    {
+        if (direction == -1)
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        }
+        else if (direction == 1)
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
     }
 }

@@ -21,7 +21,9 @@ public class TurnManager : MonoBehaviour
     public bool isStart = true;
     public bool isEnemyTurn = false;
     public bool isAbilitySelected = false;
-    public int remainingMovePts = 4;
+    public bool isAbility1Selected = false;
+    public bool isAbility2Selected = false;
+    public int remainingMovePts = 5;
 
 
     // Start is called before the first frame update
@@ -30,6 +32,8 @@ public class TurnManager : MonoBehaviour
         continueState = false;
         state = BattleState.START;
         StartCoroutine(SetupBattle());
+        movePointsText.transform.position = new Vector3(6.63f, -4.7f, 0.0f);
+        shadowMovePointsText.transform.position = new Vector3(6.63f, -4.82f, 0.0f);
         Debug.Log("START");
     }
 
@@ -62,6 +66,7 @@ public class TurnManager : MonoBehaviour
     {
         isPlayerTurn = true;
         remainingMovePts = 4;
+        mouseController.GetInRangeTiles();
         stateText.SetText("Player Turn");
         shadowStateText.SetText("Player Turn");
         movePointsText.SetText("Move " + remainingMovePts + "/4");
@@ -77,13 +82,48 @@ public class TurnManager : MonoBehaviour
         movePointsText.SetText("");
         shadowMovePointsText.SetText("");
     }
+    public void Ability1Selected()
+    {
+        Debug.Log("AB1");
+        mouseController.HideInRangeTiles();
+        mouseController.HideAllArrows();
+        isAbilitySelected = true;
+        isAbility1Selected = true;
+        isAbility2Selected = false;
+        movePointsText.transform.position = new Vector3(6.63f, -4f, 0.0f);
+        shadowMovePointsText.transform.position = new Vector3(6.63f, -4.12f, 0.0f);
+        movePointsText.SetText("Colt .32 Revolver");
+        shadowMovePointsText.SetText("Colt .32 Revolver");
+    }
+
+    public void Ability2Selected()
+    {
+        Debug.Log("AB2");
+        mouseController.HideInRangeTiles();
+        mouseController.HideAllArrows();
+        isAbilitySelected = true;
+        isAbility1Selected = false;
+        isAbility2Selected = true;
+        movePointsText.transform.position = new Vector3(6.63f, -4f, 0.0f);
+        shadowMovePointsText.transform.position = new Vector3(6.63f, -4.12f, 0.0f);
+        movePointsText.SetText("Molotov Cocktail");
+        shadowMovePointsText.SetText("Molotov Cocktail");
+    }
+    public void MoveSelected()
+    {
+        Debug.Log("MOV");
+        mouseController.GetInRangeTiles();
+        isAbilitySelected = false;
+        isAbility1Selected = false;
+        isAbility2Selected = false;
+        movePointsText.transform.position = new Vector3(6.63f, -4.7f, 0.0f);
+        shadowMovePointsText.transform.position = new Vector3(6.63f, -4.82f, 0.0f);
+    }
 
     void Update()
     {
         if (isPlayerTurn)
         {
-            movePointsText.SetText("Move " + remainingMovePts + "/4");
-            shadowMovePointsText.SetText("Move " + remainingMovePts + "/4");
             var endTurn = Input.GetKey(KeyCode.Q);
             if (endTurn)
             {
@@ -93,7 +133,18 @@ public class TurnManager : MonoBehaviour
                 EnemyTurn();
             }
 
-            if (isAbilitySelected)
+            if (!isAbilitySelected)
+            {
+                movePointsText.SetText("Move " + remainingMovePts + "/4");
+                shadowMovePointsText.SetText("Move " + remainingMovePts + "/4");
+            }
+
+            if (isAbility1Selected)
+            {
+
+            }
+
+            if (isAbility2Selected)
             {
 
             }
