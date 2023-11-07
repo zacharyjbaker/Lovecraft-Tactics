@@ -63,7 +63,7 @@ public class PlayerMove : MonoBehaviour
             movement.y = 0;
         }
 
-        Debug.Log(movement);
+        //Debug.Log(movement);
 
         rigid.MovePosition(rigid.position + movement * moveSpeed * Time.fixedDeltaTime);
     }

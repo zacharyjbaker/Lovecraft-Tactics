@@ -9,10 +9,10 @@ public class MouseController : MonoBehaviour
     public float speed;
     public GameObject characterPrefab;
     private CharacterInfo character;
-    [SerializeField] int charRange = 3;
 
     private PathFinder pathFinder;
     private RangeFinder rangeFinder;
+    [SerializeField] private TurnManager turnManager;
     private ArrowTranslator arrowTranslator;
     private List<OverlayTile> path;
     private List<OverlayTile> rangeFinderTiles;
@@ -31,54 +31,57 @@ public class MouseController : MonoBehaviour
 
     void LateUpdate()
     {
-        RaycastHit2D? hit = GetFocusedOnTile();
-
-        if (hit.HasValue)
+        if ((turnManager.isPlayerTurn || turnManager.isStart) && !turnManager.isAbilitySelected)
         {
-            OverlayTile tile = hit.Value.collider.gameObject.GetComponent<OverlayTile>();
-            cursor.transform.position = tile.transform.position;
-            cursor.gameObject.GetComponent<SpriteRenderer>().sortingOrder = tile.transform.GetComponent<SpriteRenderer>().sortingOrder;
+            RaycastHit2D? hit = GetFocusedOnTile();
 
-            if (rangeFinderTiles.Contains(tile) && !isMoving)
+            if (hit.HasValue)
             {
-                path = pathFinder.FindPath(character.standingOnTile, tile, rangeFinderTiles);
+                OverlayTile tile = hit.Value.collider.gameObject.GetComponent<OverlayTile>();
+                cursor.transform.position = tile.transform.position;
+                cursor.gameObject.GetComponent<SpriteRenderer>().sortingOrder = tile.transform.GetComponent<SpriteRenderer>().sortingOrder;
 
-                foreach (var item in rangeFinderTiles)
+                if (rangeFinderTiles.Contains(tile) && !isMoving)
                 {
-                    MapManager.Instance.map[item.grid2DLocation].SetSprite(ArrowDirection.None);
+                    path = pathFinder.FindPath(character.standingOnTile, tile, rangeFinderTiles);
+
+                    foreach (var item in rangeFinderTiles)
+                    {
+                        MapManager.Instance.map[item.grid2DLocation].SetSprite(ArrowDirection.None);
+                    }
+
+                    for (int i = 0; i < path.Count; i++)
+                    {
+                        var previousTile = i > 0 ? path[i - 1] : character.standingOnTile;
+                        var futureTile = i < path.Count - 1 ? path[i + 1] : null;
+
+                        var arrow = arrowTranslator.TranslateDirection(previousTile, path[i], futureTile);
+                        path[i].SetSprite(arrow);
+                    }
                 }
 
-                for (int i = 0; i < path.Count; i++)
+                if (Input.GetMouseButtonDown(0))
                 {
-                    var previousTile = i > 0 ? path[i - 1] : character.standingOnTile;
-                    var futureTile = i < path.Count - 1 ? path[i + 1] : null;
+                    tile.ShowTile();
 
-                    var arrow = arrowTranslator.TranslateDirection(previousTile, path[i], futureTile);
-                    path[i].SetSprite(arrow);
+                    if (character == null)
+                    {
+                        character = Instantiate(characterPrefab).GetComponent<CharacterInfo>();
+                        PositionCharacterOnLine(tile);
+                        GetInRangeTiles();
+                    }
+                    else
+                    {
+                        isMoving = true;
+                        tile.gameObject.GetComponent<OverlayTile>().HideTile();
+                    }
                 }
             }
 
-            if (Input.GetMouseButtonDown(0))
+            if (path.Count > 0 && isMoving)
             {
-                tile.ShowTile();
-
-                if (character == null)
-                {
-                    character = Instantiate(characterPrefab).GetComponent<CharacterInfo>();
-                    PositionCharacterOnLine(tile);
-                    GetInRangeTiles();
-                }
-                else
-                {
-                    isMoving = true;
-                    tile.gameObject.GetComponent<OverlayTile>().HideTile();
-                }
+                MoveAlongPath();
             }
-        }
-
-        if (path.Count > 0 && isMoving)
-        {
-            MoveAlongPath();
         }
     }
 
@@ -90,10 +93,11 @@ public class MouseController : MonoBehaviour
         character.transform.position = Vector2.MoveTowards(character.transform.position, path[0].transform.position, step);
         character.transform.position = new Vector3(character.transform.position.x, character.transform.position.y, zIndex);
 
+        // When character reaches destination
         if (Vector2.Distance(character.transform.position, path[0].transform.position) < 0.00001f)
         {
             PositionCharacterOnLine(path[0]);
-            path.RemoveAt(0);
+            path.RemoveAt(0); // delete path
         }
 
         if (path.Count == 0)
@@ -101,7 +105,6 @@ public class MouseController : MonoBehaviour
             GetInRangeTiles();
             isMoving = false;
         }
-
     }
 
     private void PositionCharacterOnLine(OverlayTile tile)
@@ -109,6 +112,7 @@ public class MouseController : MonoBehaviour
         character.transform.position = new Vector3(tile.transform.position.x, tile.transform.position.y + 0.0001f, tile.transform.position.z);
         character.GetComponent<SpriteRenderer>().sortingOrder = tile.GetComponent<SpriteRenderer>().sortingOrder;
         character.standingOnTile = tile;
+        print("RemainMove: " + turnManager.subMovePoints(1));
     }
 
     private static RaycastHit2D? GetFocusedOnTile()
@@ -128,11 +132,27 @@ public class MouseController : MonoBehaviour
 
     private void GetInRangeTiles()
     {
-        rangeFinderTiles = rangeFinder.GetTilesInRange(new Vector2Int(character.standingOnTile.gridLocation.x, character.standingOnTile.gridLocation.y), charRange);
+        rangeFinderTiles = rangeFinder.GetTilesInRange(new Vector2Int(character.standingOnTile.gridLocation.x, character.standingOnTile.gridLocation.y), turnManager.remainingMovePts);
 
-        foreach (var item in rangeFinderTiles)
+        if ((turnManager.isPlayerTurn || turnManager.isStart) && !turnManager.isAbilitySelected)
         {
-            item.ShowTile();
+            foreach (var item in rangeFinderTiles)
+            {
+                item.ShowTile();
+            }
+        } 
+    }
+
+    public void HideInRangeTiles()
+    {
+        rangeFinderTiles = rangeFinder.GetTilesInRange(new Vector2Int(character.standingOnTile.gridLocation.x, character.standingOnTile.gridLocation.y), turnManager.remainingMovePts);
+
+        if ((turnManager.isPlayerTurn || turnManager.isStart) && !turnManager.isAbilitySelected)
+        {
+            foreach (var item in rangeFinderTiles)
+            {
+                item.HideTile();
+            }
         }
     }
 }
