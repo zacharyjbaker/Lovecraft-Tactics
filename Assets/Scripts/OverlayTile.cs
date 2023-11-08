@@ -34,6 +34,10 @@ public class OverlayTile : MonoBehaviour
     {
         gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.15f);
     }
+    public void ShowTileShooting()
+    {
+        gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 0.5f, 0.5f, 0.15f);
+    }
 
     public void HideArrow()
     {

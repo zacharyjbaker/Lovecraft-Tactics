@@ -70,11 +70,18 @@ public class TurnManager : MonoBehaviour
     private void PlayerTurn()
     {
         isPlayerTurn = true;
-
+        
         remainingMovePts = 4;
 
+        isAbilitySelected = false;
+        isAbility1Selected = false;
+        isAbility2Selected = false;
+
+        mouseController.HideInRangeTilesShooting();
         mouseController.GetInRangeTiles();
 
+        movePointsText.transform.position = new Vector3(6.63f, -4.7f, 0.0f);
+        shadowMovePointsText.transform.position = new Vector3(6.63f, -4.82f, 0.0f);
         stateText.SetText("Player Turn");
         shadowStateText.SetText("Player Turn");
         movePointsText.SetText("Move " + remainingMovePts + "/4");
@@ -87,6 +94,7 @@ public class TurnManager : MonoBehaviour
         menu = false;
 
         mouseController.HideInRangeTiles();
+        mouseController.HideInRangeTilesShooting();
 
         stateText.SetText("Enemy Turn");
         shadowStateText.SetText("Enemy Turn");
@@ -101,6 +109,7 @@ public class TurnManager : MonoBehaviour
         Debug.Log("AB1");
 
         mouseController.HideInRangeTiles();
+        mouseController.HideInRangeTilesShooting();
         mouseController.HideAllArrows();
 
         isAbilitySelected = true;
@@ -122,6 +131,7 @@ public class TurnManager : MonoBehaviour
         Debug.Log("AB2");
 
         mouseController.HideInRangeTiles();
+        mouseController.HideInRangeTilesShooting();
         mouseController.HideAllArrows();
 
         isAbilitySelected = true;
@@ -161,6 +171,7 @@ public class TurnManager : MonoBehaviour
         {
             menu = true;
             mouseController.HideInRangeTiles();
+            mouseController.HideInRangeTilesShooting();
             mouseController.HideAllArrows();
             //var step = 3f * Time.deltaTime;
             UIContainer.GetComponentsInChildren<SpriteRenderer>()[0].color = new Color(1, 1, 1, 1);

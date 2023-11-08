@@ -10,6 +10,7 @@ public class MouseController : MonoBehaviour
     public float speed;
     public GameObject characterPrefab;
     private CharacterInfo character;
+    [SerializeField] private int gunRange = 0;
 
     private PathFinder pathFinder;
     private RangeFinder rangeFinder;
@@ -32,6 +33,7 @@ public class MouseController : MonoBehaviour
 
     void LateUpdate()
     {
+        // Movement selection
         if ((turnManager.isPlayerTurn || turnManager.isStart) && !turnManager.isAbilitySelected && !turnManager.menu)
         {
             RaycastHit2D? hit = GetFocusedOnTile();
@@ -83,6 +85,35 @@ public class MouseController : MonoBehaviour
             {
                 MoveAlongPath();
                 HideAllArrows();
+            }
+        }
+
+        // Shooting selection
+        else if (turnManager.isPlayerTurn && turnManager.isAbility1Selected && !turnManager.menu)
+        {
+            //Debug.Log("Ability");
+            RaycastHit2D? hit = GetFocusedOnTile();
+
+            if (hit.HasValue)
+            {
+                OverlayTile tile = hit.Value.collider.gameObject.GetComponent<OverlayTile>();
+                cursor.transform.position = tile.transform.position;
+                cursor.gameObject.GetComponent<SpriteRenderer>().sortingOrder = tile.transform.GetComponent<SpriteRenderer>().sortingOrder;
+
+                if (rangeFinderTiles.Contains(tile))
+                {
+                    path = pathFinder.FindPath(character.standingOnTile, tile, rangeFinderTiles);
+                }
+
+                GetInRangeTilesShooting();
+
+                if (Input.GetMouseButtonDown(0))
+                {
+                    //tile.ShowTile();
+                    character.GetComponent<PlayerMove>().ShootAnimation();
+                    //tile.gameObject.GetComponent<OverlayTile>().HideTile();
+                    HideInRangeTilesShooting();
+                }
             }
         }
     }
@@ -152,12 +183,27 @@ public class MouseController : MonoBehaviour
         Debug.Log(turnManager.remainingMovePts);
         rangeFinderTiles = rangeFinder.GetTilesInRange(new Vector2Int(character.standingOnTile.gridLocation.x, character.standingOnTile.gridLocation.y), turnManager.remainingMovePts);
 
-        if ((turnManager.isPlayerTurn || turnManager.isStart))
+        if (turnManager.isPlayerTurn || turnManager.isStart)
         {
             foreach (var item in rangeFinderTiles)
             {
                 Debug.Log("Reveal Tile");
                 item.ShowTile();
+            }
+        }
+    }
+
+    public void GetInRangeTilesShooting()
+    {
+        Debug.Log(turnManager.remainingMovePts);
+        rangeFinderTiles = rangeFinder.GetTilesInRange(new Vector2Int(character.standingOnTile.gridLocation.x, character.standingOnTile.gridLocation.y), gunRange);
+
+        if (turnManager.isPlayerTurn || turnManager.isStart)
+        {
+            foreach (var item in rangeFinderTiles)
+            {
+                Debug.Log("Reveal Tile");
+                item.ShowTileShooting();
             }
         }
     }
@@ -168,6 +214,20 @@ public class MouseController : MonoBehaviour
         rangeFinderTiles = rangeFinder.GetTilesInRange(new Vector2Int(character.standingOnTile.gridLocation.x, character.standingOnTile.gridLocation.y), turnManager.remainingMovePts);
 
         if ((turnManager.isEnemyTurn || turnManager.isEnemyTurn || turnManager.isStart) && !turnManager.isAbilitySelected)
+        {
+            foreach (var item in rangeFinderTiles)
+            {
+                item.HideTile();
+            }
+        }
+    }
+
+    public void HideInRangeTilesShooting()
+    {
+        Debug.Log(turnManager.remainingMovePts);
+        rangeFinderTiles = rangeFinder.GetTilesInRange(new Vector2Int(character.standingOnTile.gridLocation.x, character.standingOnTile.gridLocation.y), gunRange);
+
+        if (turnManager.isEnemyTurn || turnManager.isEnemyTurn || turnManager.isStart)
         {
             foreach (var item in rangeFinderTiles)
             {

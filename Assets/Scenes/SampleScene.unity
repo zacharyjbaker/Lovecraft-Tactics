@@ -439,7 +439,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e106f5a1df3c84f8f9ce27546d693c45, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.29
+  m_Volume: 0.326
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -5158,6 +5158,7 @@ MonoBehaviour:
   cursor: {fileID: 1972164765}
   speed: 3
   characterPrefab: {fileID: 8258419401437315237, guid: 75dc17f355ea6074193c382290a9605f, type: 3}
+  gunRange: 5
   turnManager: {fileID: 484703628}
 --- !u!212 &1972164767
 SpriteRenderer:
