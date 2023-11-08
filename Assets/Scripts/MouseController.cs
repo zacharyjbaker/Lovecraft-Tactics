@@ -32,11 +32,11 @@ public class MouseController : MonoBehaviour
 
     void LateUpdate()
     {
-        if ((turnManager.isPlayerTurn || turnManager.isStart) && !turnManager.isAbilitySelected && !EventSystem.current.IsPointerOverGameObject())
+        if ((turnManager.isPlayerTurn || turnManager.isStart) && !turnManager.isAbilitySelected && !turnManager.menu)
         {
             RaycastHit2D? hit = GetFocusedOnTile();
 
-            if (hit.HasValue && !EventSystem.current.IsPointerOverGameObject())
+            if (hit.HasValue)
             {
                 OverlayTile tile = hit.Value.collider.gameObject.GetComponent<OverlayTile>();
                 cursor.transform.position = tile.transform.position;
@@ -152,7 +152,7 @@ public class MouseController : MonoBehaviour
         Debug.Log(turnManager.remainingMovePts);
         rangeFinderTiles = rangeFinder.GetTilesInRange(new Vector2Int(character.standingOnTile.gridLocation.x, character.standingOnTile.gridLocation.y), turnManager.remainingMovePts);
 
-        if ((turnManager.isPlayerTurn || turnManager.isStart) && !turnManager.isAbilitySelected)
+        if ((turnManager.isPlayerTurn || turnManager.isStart))
         {
             foreach (var item in rangeFinderTiles)
             {
