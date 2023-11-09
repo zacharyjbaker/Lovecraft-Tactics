@@ -111,6 +111,7 @@ public class TurnManager : MonoBehaviour
         mouseController.HideInRangeTiles();
         mouseController.HideInRangeTilesShooting();
         mouseController.HideAllArrows();
+        mouseController.ResetShot();
 
         isAbilitySelected = true;
         isAbility1Selected = true;

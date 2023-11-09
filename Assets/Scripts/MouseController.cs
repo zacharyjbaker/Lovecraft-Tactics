@@ -3,6 +3,8 @@ using UnityEngine;
 using System.Linq;
 using UnityEngine.EventSystems;
 using static ArrowTranslator;
+using System.Collections;
+using JetBrains.Annotations;
 
 public class MouseController : MonoBehaviour
 {
@@ -19,6 +21,7 @@ public class MouseController : MonoBehaviour
     private List<OverlayTile> path;
     private List<OverlayTile> rangeFinderTiles;
     private bool isMoving;
+    private bool isShot;
 
     private void Start()
     {
@@ -29,6 +32,13 @@ public class MouseController : MonoBehaviour
         path = new List<OverlayTile>();
         isMoving = false;
         rangeFinderTiles = new List<OverlayTile>();
+    }
+
+    IEnumerator DealDamage(float delay, GameObject target)
+    {
+        yield return new WaitForSeconds(delay);
+        target.GetComponent<EnemyLogic>().TakeDamage(1);
+        print("hit");
     }
 
     void LateUpdate()
@@ -105,14 +115,33 @@ public class MouseController : MonoBehaviour
                     path = pathFinder.FindPath(character.standingOnTile, tile, rangeFinderTiles);
                 }
 
-                GetInRangeTilesShooting();
-
+                if (!isShot)
+                {
+                    GetInRangeTilesShooting();
+                }
+                else
+                {
+                    HideInRangeTilesShooting();
+                }
+                
                 if (Input.GetMouseButtonDown(0))
                 {
+                    isShot = true;
                     //tile.ShowTile();
                     character.GetComponent<PlayerMove>().ShootAnimation();
                     //tile.gameObject.GetComponent<OverlayTile>().HideTile();
-                    HideInRangeTilesShooting();
+                    
+                    Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+
+                    //RaycastHit2D[] hits = Physics2D.RaycastAll(mousePos2D, Vector2.zero);
+
+                    RaycastHit2D shotHit = Physics2D.Raycast(mousePos2D, Vector2.zero);
+
+                    if (shotHit.collider.gameObject.tag == "Enemy")
+                    {
+                        StartCoroutine(DealDamage(2f, shotHit.collider.gameObject));
+                    }
                 }
             }
         }
@@ -180,29 +209,29 @@ public class MouseController : MonoBehaviour
 
     public void GetInRangeTiles()
     {
-        Debug.Log(turnManager.remainingMovePts);
+        //Debug.Log(turnManager.remainingMovePts);
         rangeFinderTiles = rangeFinder.GetTilesInRange(new Vector2Int(character.standingOnTile.gridLocation.x, character.standingOnTile.gridLocation.y), turnManager.remainingMovePts);
 
         if (turnManager.isPlayerTurn || turnManager.isStart)
         {
             foreach (var item in rangeFinderTiles)
             {
-                Debug.Log("Reveal Tile");
+                //Debug.Log("Reveal Tile");
                 item.ShowTile();
             }
         }
     }
-
+     
     public void GetInRangeTilesShooting()
     {
-        Debug.Log(turnManager.remainingMovePts);
+        Debug.Log("Show Shots");
         rangeFinderTiles = rangeFinder.GetTilesInRange(new Vector2Int(character.standingOnTile.gridLocation.x, character.standingOnTile.gridLocation.y), gunRange);
 
         if (turnManager.isPlayerTurn || turnManager.isStart)
         {
             foreach (var item in rangeFinderTiles)
             {
-                Debug.Log("Reveal Tile");
+                //Debug.Log("Reveal Tile");
                 item.ShowTileShooting();
             }
         }
@@ -210,10 +239,10 @@ public class MouseController : MonoBehaviour
 
     public void HideInRangeTiles()
     {
-        Debug.Log(turnManager.remainingMovePts);
+        //Debug.Log(turnManager.remainingMovePts);
         rangeFinderTiles = rangeFinder.GetTilesInRange(new Vector2Int(character.standingOnTile.gridLocation.x, character.standingOnTile.gridLocation.y), turnManager.remainingMovePts);
 
-        if ((turnManager.isEnemyTurn || turnManager.isEnemyTurn || turnManager.isStart) && !turnManager.isAbilitySelected)
+        if ((turnManager.isEnemyTurn || turnManager.isStart) && !turnManager.isAbilitySelected)
         {
             foreach (var item in rangeFinderTiles)
             {
@@ -224,10 +253,11 @@ public class MouseController : MonoBehaviour
 
     public void HideInRangeTilesShooting()
     {
-        Debug.Log(turnManager.remainingMovePts);
+        Debug.Log("Hide Shots");
+        //Debug.Log(turnManager.remainingMovePts);
         rangeFinderTiles = rangeFinder.GetTilesInRange(new Vector2Int(character.standingOnTile.gridLocation.x, character.standingOnTile.gridLocation.y), gunRange);
 
-        if (turnManager.isEnemyTurn || turnManager.isEnemyTurn || turnManager.isStart)
+        if (turnManager.isEnemyTurn || turnManager.isStart)
         {
             foreach (var item in rangeFinderTiles)
             {
@@ -247,5 +277,10 @@ public class MouseController : MonoBehaviour
                 item.HideArrow();
             }
         }
+    }
+
+    public void ResetShot()
+    {
+        isShot = false;
     }
 }
