@@ -9,6 +9,8 @@ public class PlayerMove : MonoBehaviour
     public float moveSpeed = 3f;
     public Rigidbody2D rigid;
     public Animator animator;
+    public GameObject cursor;
+    public TurnManager turnManager;
     [SerializeField] public AudioClip[] sfx;
     AudioSource audioSource;
 
@@ -79,7 +81,7 @@ public class PlayerMove : MonoBehaviour
         audioSource.PlayOneShot(choice, volume);
     }
 
-    public void ShootAnimation()
+    public void ShootAnimation()   
     {
         animator.SetTrigger("Shoot");
         StartCoroutine(playSFX(sfx[0], 1.36f, 0.7f));

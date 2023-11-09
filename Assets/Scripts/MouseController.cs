@@ -41,6 +41,12 @@ public class MouseController : MonoBehaviour
         print("hit");
     }
 
+    IEnumerator ResetShotState()
+    {
+        yield return new WaitForSeconds(3);
+        isShot = false;
+    }
+
     void LateUpdate()
     {
         // Movement selection
@@ -101,6 +107,16 @@ public class MouseController : MonoBehaviour
         // Shooting selection
         else if (turnManager.isPlayerTurn && turnManager.isAbility1Selected && !turnManager.menu)
         {
+
+            if (isShot || turnManager.outOfAmmo)
+            {
+                HideInRangeTilesShooting();
+            }
+            else
+            {
+                GetInRangeTilesShooting();
+            }
+            Debug.Log(isShot);
             //Debug.Log("Ability");
             RaycastHit2D? hit = GetFocusedOnTile();
 
@@ -115,18 +131,15 @@ public class MouseController : MonoBehaviour
                     path = pathFinder.FindPath(character.standingOnTile, tile, rangeFinderTiles);
                 }
 
-                if (!isShot)
+                if (Input.GetMouseButtonDown(0) && turnManager.outOfAmmo)
                 {
-                    GetInRangeTilesShooting();
+                    Debug.Log("Out of shots for this turn!");
                 }
-                else
-                {
-                    HideInRangeTilesShooting();
-                }
-                
-                if (Input.GetMouseButtonDown(0))
+                else if (Input.GetMouseButtonDown(0) && !turnManager.outOfAmmo)
                 {
                     isShot = true;
+                    HideInRangeTilesShooting();
+                    turnManager.GetComponent<TurnManager>().UseBullet();
                     //tile.ShowTile();
                     character.GetComponent<PlayerMove>().ShootAnimation();
                     //tile.gameObject.GetComponent<OverlayTile>().HideTile();
@@ -142,6 +155,8 @@ public class MouseController : MonoBehaviour
                     {
                         StartCoroutine(DealDamage(2f, shotHit.collider.gameObject));
                     }
+
+                    StartCoroutine(ResetShotState());
                 }
             }
         }
@@ -189,7 +204,8 @@ public class MouseController : MonoBehaviour
         character.transform.position = new Vector3(tile.transform.position.x, tile.transform.position.y + 0.0001f, tile.transform.position.z);
         character.GetComponent<SpriteRenderer>().sortingOrder = tile.GetComponent<SpriteRenderer>().sortingOrder;
         character.standingOnTile = tile;
-        print("RemainMove: " + turnManager.subMovePoints(1));
+        turnManager.SubMovePoints(1);
+        //print("RemainMove: " + turnManager.SubMovePoints(1));
     }
 
     private static RaycastHit2D? GetFocusedOnTile()
@@ -224,7 +240,7 @@ public class MouseController : MonoBehaviour
      
     public void GetInRangeTilesShooting()
     {
-        Debug.Log("Show Shots");
+        //Debug.Log("Show Shots");
         rangeFinderTiles = rangeFinder.GetTilesInRange(new Vector2Int(character.standingOnTile.gridLocation.x, character.standingOnTile.gridLocation.y), gunRange);
 
         if (turnManager.isPlayerTurn || turnManager.isStart)
@@ -253,11 +269,11 @@ public class MouseController : MonoBehaviour
 
     public void HideInRangeTilesShooting()
     {
-        Debug.Log("Hide Shots");
+        //Debug.Log("Hide Shots");
         //Debug.Log(turnManager.remainingMovePts);
         rangeFinderTiles = rangeFinder.GetTilesInRange(new Vector2Int(character.standingOnTile.gridLocation.x, character.standingOnTile.gridLocation.y), gunRange);
 
-        if (turnManager.isEnemyTurn || turnManager.isStart)
+        if (turnManager.isPlayerTurn || turnManager.isStart)
         {
             foreach (var item in rangeFinderTiles)
             {
@@ -277,10 +293,5 @@ public class MouseController : MonoBehaviour
                 item.HideArrow();
             }
         }
-    }
-
-    public void ResetShot()
-    {
-        isShot = false;
     }
 }

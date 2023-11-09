@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 13a20e147a1ca464bb1fef0f107f0919
+guid: 55f566d7b8dea534497c3257ec1aa54d
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -95,7 +95,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638327370151567310
+  platformSettingsDirtyTick: 638326454814695747
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -119,18 +119,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: starspawn_1_Frame_0
+  - name: mi-go_Frame_0
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.4666667, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 32
-      height: 32
-    spriteID: f7f129547cf354087b94f5ef954df78a
+      width: 15
+      height: 16
+    spriteID: b0cc94e12c2a6744f98dcef089ccff4c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -139,18 +139,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: starspawn_1_Frame_1
+  - name: mi-go_Frame_1
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.4666667, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 44
-      width: 32
-      height: 32
-    spriteID: 24d953e65fbc043daa67b257e736ee04
+      x: 27
+      y: 27
+      width: 15
+      height: 15
+    spriteID: 90c1d93eeeca53f4e9e6aba4f6861db6
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -158,59 +158,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 44}
-  - name: starspawn_1_Frame_2
+    uvTransform: {x: 27, y: 27}
+  - name: mi-go_Frame_2
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 44
-      y: 44
-      width: 32
-      height: 31
-    spriteID: 7e2c78cb5700d420090ac1bf2c739f8b
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 44, y: 44}
-  - name: starspawn_1_Frame_3
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 84
-      width: 32
-      height: 32
-    spriteID: adb6df50cb282401d9e9219575b1070d
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 84}
-  - name: starspawn_1_Frame_4
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 44
+      x: 27
       y: 4
-      width: 32
-      height: 32
-    spriteID: 0c88f120077584294bea2ecede633a2c
+      width: 16
+      height: 15
+    spriteID: 3199d98034a04974ca3a63fd9c136289
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -218,56 +178,68 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 44, y: 4}
+    uvTransform: {x: 27, y: 4}
+  - name: mi-go_Frame_3
+    originalName: 
+    pivot: {x: 0.4666667, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 28
+      width: 15
+      height: 16
+    spriteID: a7c74feaa905c2c4da9d6218ddd60664
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 28}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1442312371
-    name: starspawn_1
+    guid: 1915477229
+    name: mi-go
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: starspawn_1_Frame_0
+    - name: mi-go_Frame_0
       frameIndex: 0
       cellRect:
-        x: 0
+        x: 1
         y: 0
-        width: 32
-        height: 32
-      spriteId: f7f129547cf354087b94f5ef954df78a
-    - name: starspawn_1_Frame_1
+        width: 15
+        height: 16
+      spriteId: b0cc94e12c2a6744f98dcef089ccff4c
+    - name: mi-go_Frame_1
       frameIndex: 1
       cellRect:
-        x: 0
+        x: 1
         y: 0
-        width: 32
-        height: 32
-      spriteId: 24d953e65fbc043daa67b257e736ee04
-    - name: starspawn_1_Frame_2
+        width: 15
+        height: 15
+      spriteId: 90c1d93eeeca53f4e9e6aba4f6861db6
+    - name: mi-go_Frame_2
       frameIndex: 2
       cellRect:
         x: 0
         y: 0
-        width: 32
-        height: 31
-      spriteId: 7e2c78cb5700d420090ac1bf2c739f8b
-    - name: starspawn_1_Frame_3
+        width: 16
+        height: 15
+      spriteId: 3199d98034a04974ca3a63fd9c136289
+    - name: mi-go_Frame_3
       frameIndex: 3
       cellRect:
-        x: 0
+        x: 1
         y: 0
-        width: 32
-        height: 32
-      spriteId: adb6df50cb282401d9e9219575b1070d
-    - name: starspawn_1_Frame_4
-      frameIndex: 4
-      cellRect:
-        x: 0
-        y: 0
-        width: 32
-        height: 32
-      spriteId: 0c88f120077584294bea2ecede633a2c
+        width: 15
+        height: 16
+      spriteId: a7c74feaa905c2c4da9d6218ddd60664
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -307,6 +279,18 @@ ScriptedImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     androidETC2FallbackOverride: 0
+  - name: WebGL
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 32, y: 32}
+  canvasSize: {x: 16, y: 16}

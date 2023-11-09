@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dddf8c8c0b69f4d4e9e04414a551b604
+guid: 9cb725f0f72dd2c449af87a568f624dc
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,27 +119,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: remy_1-export_Frame_0
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 28
-      y: 28
-      width: 16
-      height: 15
-    spriteID: 6f0b0a2e8cf53e544b4f0e2e9e8704e9
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 28, y: 28}
-  - name: remy_1-export_Frame_1
+  - name: yith_Frame_0
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -150,7 +130,7 @@ ScriptedImporter:
       y: 4
       width: 16
       height: 16
-    spriteID: 3abfad1066e977647b722d2a106a1803
+    spriteID: 22edf5ff644c8bf4eae35fa2478a63b7
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -159,7 +139,27 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: remy_1-export_Frame_2
+  - name: yith_Frame_1
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 28
+      y: 4
+      width: 16
+      height: 15
+    spriteID: a9c4747832a0b34498ab4f681a1ce94f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 28, y: 4}
+  - name: yith_Frame_2
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -170,7 +170,7 @@ ScriptedImporter:
       y: 28
       width: 16
       height: 16
-    spriteID: ea9fc8be2bdfb7248b04a2b6a9e632f9
+    spriteID: 9a512777fdceab848b05aa6a707c0802
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -179,18 +179,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 28}
-  - name: remy_1-export_Frame_3
+  - name: yith_Frame_3
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 28
-      y: 4
+      x: 4
+      y: 52
       width: 16
       height: 16
-    spriteID: 4926f43ab82b82e45b1f15e0f2328877
+    spriteID: 9a54e80a1deee654e8d3a372f4cf3967
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -198,48 +198,104 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 28, y: 4}
+    uvTransform: {x: 4, y: 52}
+  - name: yith_Frame_4
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 76
+      width: 16
+      height: 16
+    spriteID: 058890d681830f6468a0fc981f9f4887
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 76}
+  - name: yith_Frame_5
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 100
+      width: 16
+      height: 16
+    spriteID: ec80289007ca23e4dbe60d5518a92d22
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 100}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -2124182850
-    name: remy_1-export
+    guid: -874615636
+    name: yith
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: remy_1-export_Frame_0
+    - name: yith_Frame_0
       frameIndex: 0
       cellRect:
         x: 0
         y: 0
         width: 16
-        height: 15
-      spriteId: 6f0b0a2e8cf53e544b4f0e2e9e8704e9
-    - name: remy_1-export_Frame_1
+        height: 16
+      spriteId: 22edf5ff644c8bf4eae35fa2478a63b7
+    - name: yith_Frame_1
       frameIndex: 1
       cellRect:
         x: 0
         y: 0
         width: 16
-        height: 16
-      spriteId: 3abfad1066e977647b722d2a106a1803
-    - name: remy_1-export_Frame_2
+        height: 15
+      spriteId: a9c4747832a0b34498ab4f681a1ce94f
+    - name: yith_Frame_2
       frameIndex: 2
       cellRect:
         x: 0
         y: 0
         width: 16
         height: 16
-      spriteId: ea9fc8be2bdfb7248b04a2b6a9e632f9
-    - name: remy_1-export_Frame_3
+      spriteId: 9a512777fdceab848b05aa6a707c0802
+    - name: yith_Frame_3
       frameIndex: 3
       cellRect:
         x: 0
         y: 0
         width: 16
         height: 16
-      spriteId: 4926f43ab82b82e45b1f15e0f2328877
+      spriteId: 9a54e80a1deee654e8d3a372f4cf3967
+    - name: yith_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      spriteId: 058890d681830f6468a0fc981f9f4887
+    - name: yith_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      spriteId: ec80289007ca23e4dbe60d5518a92d22
     linkedCells: []
     parentIndex: -1
   platformSettings:

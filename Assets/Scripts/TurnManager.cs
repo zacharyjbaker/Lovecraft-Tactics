@@ -17,6 +17,10 @@ public class TurnManager : MonoBehaviour
     [SerializeField] TMP_Text shadowMovePointsText;
     [SerializeField] MouseController mouseController;
     [SerializeField] GameObject UIContainer;
+    [SerializeField] GameObject bullet;
+    [SerializeField] GameObject bullet1;
+    [SerializeField] private GameObject OverlayTileContainer;
+    [SerializeField] GameObject enemyPrefab;
     public BattleState state;
     private bool continueState;
     public bool isPlayerTurn = false;
@@ -29,6 +33,8 @@ public class TurnManager : MonoBehaviour
     public bool delay = false;
     public float decay = 1f;
     public int remainingMovePts = 5;
+    public bool isFirstShot = true;
+    public bool outOfAmmo = false;
 
 
     // Start is called before the first frame update
@@ -39,6 +45,10 @@ public class TurnManager : MonoBehaviour
         StartCoroutine(SetupBattle());
         movePointsText.transform.position = new Vector3(6.63f, -4.7f, 0.0f);
         shadowMovePointsText.transform.position = new Vector3(6.63f, -4.82f, 0.0f);
+
+        //Instantiate(enemyPrefab, this.transform);
+        //enemyPrefab.GetComponent<EnemyLogic>().enemyTile = OverlayTileContainer.transform.GetChild(23).GetComponent<OverlayTile>();
+
         Debug.Log("START");
     }
 
@@ -61,7 +71,21 @@ public class TurnManager : MonoBehaviour
         PlayerTurn();
     }
 
-    public int subMovePoints(int subtraction)
+    public void UseBullet()
+    {
+        if (isFirstShot) 
+        {
+            bullet.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+            isFirstShot = false;
+        }
+        else 
+        { 
+            bullet1.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+            outOfAmmo = true;
+        }
+    }
+
+    public int SubMovePoints(int subtraction)
     {
         remainingMovePts -= subtraction;
         return remainingMovePts;
@@ -76,6 +100,8 @@ public class TurnManager : MonoBehaviour
         isAbilitySelected = false;
         isAbility1Selected = false;
         isAbility2Selected = false;
+        isFirstShot = true;
+        outOfAmmo = false;
 
         mouseController.HideInRangeTilesShooting();
         mouseController.GetInRangeTiles();
@@ -111,7 +137,6 @@ public class TurnManager : MonoBehaviour
         mouseController.HideInRangeTiles();
         mouseController.HideInRangeTilesShooting();
         mouseController.HideAllArrows();
-        mouseController.ResetShot();
 
         isAbilitySelected = true;
         isAbility1Selected = true;
@@ -125,6 +150,15 @@ public class TurnManager : MonoBehaviour
         
         UIContainer.GetComponentsInChildren<SpriteRenderer>()[0].color = new Color(1, 1, 1, 0);
         UIContainer.GetComponentsInChildren<SpriteRenderer>()[1].color = new Color(1, 1, 1, 0);
+        if (isFirstShot)
+        { 
+            bullet.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            bullet1.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        }
+        else if (!isFirstShot && !outOfAmmo)
+        {
+            bullet1.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        }
     }
 
     public void Ability2Selected()
@@ -147,6 +181,8 @@ public class TurnManager : MonoBehaviour
 
         UIContainer.GetComponentsInChildren<SpriteRenderer>()[0].color = new Color(1, 1, 1, 0);
         UIContainer.GetComponentsInChildren<SpriteRenderer>()[1].color = new Color(1, 1, 1, 0);
+        bullet.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+        bullet1.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
     }
     public void MoveSelected()
     {
@@ -164,6 +200,8 @@ public class TurnManager : MonoBehaviour
 
         UIContainer.GetComponentsInChildren<SpriteRenderer>()[0].color = new Color(1, 1, 1, 0);
         UIContainer.GetComponentsInChildren<SpriteRenderer>()[1].color = new Color(1, 1, 1, 0);
+        bullet.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+        bullet1.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
     }
 
     public void Menu()

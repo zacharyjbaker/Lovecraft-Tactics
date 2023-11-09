@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 55f566d7b8dea534497c3257ec1aa54d
+guid: dddf8c8c0b69f4d4e9e04414a551b604
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,18 +119,38 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: mi-go_1-export_Frame_0
+  - name: remy_Frame_0
     originalName: 
-    pivot: {x: 0.4666667, y: 0}
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 28
+      y: 28
+      width: 16
+      height: 15
+    spriteID: 76949fdb3990cd645a720c39b8575120
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 28, y: 28}
+  - name: remy_Frame_1
+    originalName: 
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 15
+      width: 16
       height: 16
-    spriteID: 8421adfca720103499926f517413b327
+    spriteID: f4dc5ffe3d65f5446a48724b72e2d782
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -139,58 +159,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: mi-go_1-export_Frame_1
-    originalName: 
-    pivot: {x: 0.4666667, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 27
-      y: 27
-      width: 15
-      height: 15
-    spriteID: 39f6b531361aa35469e27c1d3e3f5d8e
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 27, y: 27}
-  - name: mi-go_1-export_Frame_2
+  - name: remy_Frame_2
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 27
-      y: 4
-      width: 16
-      height: 15
-    spriteID: 66665c5eb8a0d4d429f936400e93a1df
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 27, y: 4}
-  - name: mi-go_1-export_Frame_3
-    originalName: 
-    pivot: {x: 0.4666667, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
       x: 4
       y: 28
-      width: 15
+      width: 16
       height: 16
-    spriteID: 468a14dfae120e64caf57f7c95364e17
+    spriteID: 99b2873e1f7679e4aad5a754ea5d76e5
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -199,47 +179,67 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 28}
+  - name: remy_Frame_3
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 28
+      y: 4
+      width: 16
+      height: 16
+    spriteID: 610c6d01bb65bf4449969f5a60386d88
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 28, y: 4}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 830270470
-    name: mi-go_1-export
+    guid: 1144002155
+    name: remy
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: mi-go_1-export_Frame_0
+    - name: remy_Frame_0
       frameIndex: 0
-      cellRect:
-        x: 1
-        y: 0
-        width: 15
-        height: 16
-      spriteId: 8421adfca720103499926f517413b327
-    - name: mi-go_1-export_Frame_1
-      frameIndex: 1
-      cellRect:
-        x: 1
-        y: 0
-        width: 15
-        height: 15
-      spriteId: 39f6b531361aa35469e27c1d3e3f5d8e
-    - name: mi-go_1-export_Frame_2
-      frameIndex: 2
       cellRect:
         x: 0
         y: 0
         width: 16
         height: 15
-      spriteId: 66665c5eb8a0d4d429f936400e93a1df
-    - name: mi-go_1-export_Frame_3
+      spriteId: 76949fdb3990cd645a720c39b8575120
+    - name: remy_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      spriteId: f4dc5ffe3d65f5446a48724b72e2d782
+    - name: remy_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      spriteId: 99b2873e1f7679e4aad5a754ea5d76e5
+    - name: remy_Frame_3
       frameIndex: 3
       cellRect:
-        x: 1
+        x: 0
         y: 0
-        width: 15
+        width: 16
         height: 16
-      spriteId: 468a14dfae120e64caf57f7c95364e17
+      spriteId: 610c6d01bb65bf4449969f5a60386d88
     linkedCells: []
     parentIndex: -1
   platformSettings:

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8620943446244942317}
   - component: {fileID: 8336785661579735566}
   m_Layer: 0
-  m_Name: deepone
+  m_Name: ghoul
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9055973307110704177, guid: 0c79706d3d3fb174d9de8727f628356c, type: 3}
+  m_Sprite: {fileID: 3815527873431690165, guid: 5d0451e39835af640bf95305087c6b88, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -122,8 +122,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.46875}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1, y: 0.9375}
+    pivot: {x: 0.4666667, y: 0}
+    oldSize: {x: 0.9375, y: 1}
     newSize: {x: 1, y: 0.9375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -144,12 +144,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd1b77f586aba8044b3623aa3bb46828, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHitPoints: 3
+  startingHitPoints: 2
   hitPoints: 3
-  character: {fileID: 4253590731329278253, guid: 75dc17f355ea6074193c382290a9605f, type: 3}
-  turnManager: {fileID: 0}
-  enemyTile: {fileID: 0}
-  speed: 2
 --- !u!95 &8336785661579735566
 Animator:
   serializedVersion: 5
@@ -160,7 +156,7 @@ Animator:
   m_GameObject: {fileID: 7645168982931191190}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b38a8e9dd049ac643b7322b47360695b, type: 2}
+  m_Controller: {fileID: 8798472584768637506, guid: 5d0451e39835af640bf95305087c6b88, type: 3}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

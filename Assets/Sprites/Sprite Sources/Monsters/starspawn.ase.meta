@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9cb725f0f72dd2c449af87a568f624dc
+guid: 13a20e147a1ca464bb1fef0f107f0919
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -95,7 +95,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638326454814695747
+  platformSettingsDirtyTick: 638327370151567310
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -119,7 +119,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: yith_1-export_Frame_0
+  - name: starspawn_Frame_0
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -128,9 +128,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 16
-      height: 16
-    spriteID: 344a651a50f20d54fa244e5f7cb49820
+      width: 32
+      height: 32
+    spriteID: 17e40a70cdc0a224086ffb57dcbe02f0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -139,18 +139,78 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: yith_1-export_Frame_1
+  - name: starspawn_Frame_1
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 28
+      x: 4
+      y: 44
+      width: 32
+      height: 32
+    spriteID: 2c51648725eaba04986dd6787cb5e216
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 44}
+  - name: starspawn_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 44
+      width: 32
+      height: 31
+    spriteID: fa13bc4c9c8d5184bb3bcea9ff985fd4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 44}
+  - name: starspawn_Frame_3
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 84
+      width: 32
+      height: 32
+    spriteID: b82f2a78b40a3e240a08db59cb384662
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 84}
+  - name: starspawn_Frame_4
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
       y: 4
-      width: 16
-      height: 15
-    spriteID: d79004625b7e1594db37bcbfefd876a8
+      width: 32
+      height: 32
+    spriteID: e782d8f8cb660b545a408adba763bc4c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -158,144 +218,56 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 28, y: 4}
-  - name: yith_1-export_Frame_2
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 28
-      width: 16
-      height: 16
-    spriteID: d8be59c3924e7884bac0147905f7a14f
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 28}
-  - name: yith_1-export_Frame_3
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 52
-      width: 16
-      height: 16
-    spriteID: 0659a56bf0383844fbd463c1c377c309
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 52}
-  - name: yith_1-export_Frame_4
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 76
-      width: 16
-      height: 16
-    spriteID: aa2af83decc3c4e4381497bb201a0a78
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 76}
-  - name: yith_1-export_Frame_5
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 100
-      width: 16
-      height: 16
-    spriteID: e4621b6724aee7042b7f8095f9847ba1
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 100}
+    uvTransform: {x: 44, y: 4}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1740892215
-    name: yith_1-export
+    guid: 992797587
+    name: starspawn
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: yith_1-export_Frame_0
+    - name: starspawn_Frame_0
       frameIndex: 0
       cellRect:
         x: 0
         y: 0
-        width: 16
-        height: 16
-      spriteId: 344a651a50f20d54fa244e5f7cb49820
-    - name: yith_1-export_Frame_1
+        width: 32
+        height: 32
+      spriteId: 17e40a70cdc0a224086ffb57dcbe02f0
+    - name: starspawn_Frame_1
       frameIndex: 1
       cellRect:
         x: 0
         y: 0
-        width: 16
-        height: 15
-      spriteId: d79004625b7e1594db37bcbfefd876a8
-    - name: yith_1-export_Frame_2
+        width: 32
+        height: 32
+      spriteId: 2c51648725eaba04986dd6787cb5e216
+    - name: starspawn_Frame_2
       frameIndex: 2
       cellRect:
         x: 0
         y: 0
-        width: 16
-        height: 16
-      spriteId: d8be59c3924e7884bac0147905f7a14f
-    - name: yith_1-export_Frame_3
+        width: 32
+        height: 31
+      spriteId: fa13bc4c9c8d5184bb3bcea9ff985fd4
+    - name: starspawn_Frame_3
       frameIndex: 3
       cellRect:
         x: 0
         y: 0
-        width: 16
-        height: 16
-      spriteId: 0659a56bf0383844fbd463c1c377c309
-    - name: yith_1-export_Frame_4
+        width: 32
+        height: 32
+      spriteId: b82f2a78b40a3e240a08db59cb384662
+    - name: starspawn_Frame_4
       frameIndex: 4
       cellRect:
         x: 0
         y: 0
-        width: 16
-        height: 16
-      spriteId: aa2af83decc3c4e4381497bb201a0a78
-    - name: yith_1-export_Frame_5
-      frameIndex: 5
-      cellRect:
-        x: 0
-        y: 0
-        width: 16
-        height: 16
-      spriteId: e4621b6724aee7042b7f8095f9847ba1
+        width: 32
+        height: 32
+      spriteId: e782d8f8cb660b545a408adba763bc4c
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -335,18 +307,6 @@ ScriptedImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     androidETC2FallbackOverride: 0
-  - name: WebGL
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 16, y: 16}
+  canvasSize: {x: 32, y: 32}
