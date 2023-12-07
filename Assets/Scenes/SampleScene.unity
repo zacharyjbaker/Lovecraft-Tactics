@@ -432,6 +432,10 @@ MonoBehaviour:
   - {fileID: 1552004992}
   - {fileID: 37789662}
   - {fileID: 351271631}
+  backgroundMusic: {fileID: 575015048}
+  bgmusic:
+  - {fileID: 8300000, guid: e106f5a1df3c84f8f9ce27546d693c45, type: 3}
+  - {fileID: 8300000, guid: e106f5a1df3c84f8f9ce27546d693c45, type: 3}
   state: 0
   isPlayerTurn: 0
   isStart: 1
@@ -742,7 +746,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f4b72613ee7642449bb0d2f8b55f83e0, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e106f5a1df3c84f8f9ce27546d693c45, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.612
   m_Pitch: 1

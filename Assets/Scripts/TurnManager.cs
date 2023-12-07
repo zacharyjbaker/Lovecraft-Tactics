@@ -22,6 +22,10 @@ public class TurnManager : MonoBehaviour
     [SerializeField] private GameObject OverlayTileContainer;
     [SerializeField] GameObject enemyPrefab;
     [SerializeField] GameObject[] spawners;
+
+    [SerializeField] GameObject backgroundMusic;
+    [SerializeField] AudioClip[] bgmusic;
+
     public BattleState state;
     private bool continueState;
     public bool isPlayerTurn = false;
@@ -45,6 +49,7 @@ public class TurnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        backgroundMusic.GetComponent<AudioSource>().clip = bgmusic[Random.Range(0, 2)];
         continueState = false;
         state = BattleState.START;
         StartCoroutine(SetupBattle());
