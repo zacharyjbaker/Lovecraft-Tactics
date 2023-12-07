@@ -21,6 +21,7 @@ public class TurnManager : MonoBehaviour
     [SerializeField] GameObject bullet1;
     [SerializeField] private GameObject OverlayTileContainer;
     [SerializeField] GameObject enemyPrefab;
+    [SerializeField] GameObject[] spawners;
     public BattleState state;
     private bool continueState;
     public bool isPlayerTurn = false;
@@ -35,7 +36,9 @@ public class TurnManager : MonoBehaviour
     public int remainingMovePts = 5;
     public bool isFirstShot = true;
     public bool outOfAmmo = false;
-    [SerializeField] GameObject[] enemyList;
+    private int rand;
+    private List<int> tempRand = new List<int>();
+    [SerializeField] GameObject enemyList;
     [SerializeField] GameObject objectList;
 
 
@@ -52,6 +55,25 @@ public class TurnManager : MonoBehaviour
         //enemyPrefab.GetComponent<EnemyLogic>().enemyTile = OverlayTileContainer.transform.GetChild(23).GetComponent<OverlayTile>();
 
         Debug.Log("START");
+
+        SpawnHorde();
+    }
+
+    public void SpawnHorde()
+    {
+        for (int i = 0; i < (spawners.Length / 2); i++)
+        {
+            rand = Random.Range(0, spawners.Length);
+
+            while (tempRand.Contains(rand))
+            {
+                rand = Random.Range(0, spawners.Length);
+            }
+            tempRand.Add(rand);
+            Debug.Log("Activate Spawner: " + rand);
+            spawners[rand].GetComponent<Spawner>().SpawnEnemy(Random.Range(0, 5), spawners[rand].transform);
+        }
+        tempRand.Clear();
     }
 
     IEnumerator SetupBattle()
@@ -242,21 +264,21 @@ public class TurnManager : MonoBehaviour
                 state = BattleState.ENEMYTURN;
                 Debug.Log("ENEMYTURN");
                 EnemyTurn();
-                foreach (GameObject e in enemyList)
+                foreach (Transform child in enemyList.transform)
                 {
-                    Debug.Log(e);
-                    if (e.tag == "Fire")
+                    Debug.Log(child.gameObject.name);
+                    if (child.gameObject.tag == "Fire")
                     {
                         Debug.Log("Fire");
-                        if (e.GetComponent<Fire>().timer == 0)
+                        if (child.gameObject.GetComponent<Fire>().timer == 0)
                         {
-                            Destroy(e);
+                            Destroy(child.gameObject);
                         }
-                        else { e.GetComponent<Fire>().timer--; }
+                        else { child.gameObject.GetComponent<Fire>().timer--; }
                         
                     }
-                    else if (e == null) { continue; }
-                    else { e.GetComponent<EnemyLogic>().fireDamage = false; }
+                    else if (child.gameObject != null) { child.gameObject.GetComponent<EnemyLogic>().fireDamage = false; }
+                    else { continue; }
                 }
             }
 
@@ -294,6 +316,7 @@ public class TurnManager : MonoBehaviour
                 state = BattleState.PLAYERTURN;
                 Debug.Log("PLAYERTURN");
                 PlayerTurn();
+                SpawnHorde();
             }
         }
     }

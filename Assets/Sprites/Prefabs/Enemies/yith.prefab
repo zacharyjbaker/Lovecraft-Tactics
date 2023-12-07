@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -314111818272319459}
   - component: {fileID: 8620943446244942317}
   - component: {fileID: 8336785661579735566}
+  - component: {fileID: 7109770960716897236}
   m_Layer: 0
   m_Name: yith
   m_TagString: Enemy
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -5359801213415218972, guid: 9cb725f0f72dd2c449af87a568f624dc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -146,6 +147,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHitPoints: 5
   hitPoints: 3
+  character: {fileID: 0}
+  OverlayTileContainer: {fileID: 0}
+  characterTile: {fileID: 0}
+  turnManager: {fileID: 0}
+  enemyTile: {fileID: 0}
+  fireDamage: 0
+  speed: 0
 --- !u!95 &8336785661579735566
 Animator:
   serializedVersion: 5
@@ -167,3 +175,30 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!50 &7109770960716897236
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7645168982931191190}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0

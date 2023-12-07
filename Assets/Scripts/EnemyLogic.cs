@@ -69,9 +69,9 @@ public class EnemyLogic : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log("Collision");
+        //Debug.Log("Collision");
         if (other.CompareTag("Fire") && fireDamage == false)
         {
             Debug.Log("Fire Hit");
@@ -80,93 +80,4 @@ public class EnemyLogic : MonoBehaviour
         }
 
     }
-
-    // Update is called once per frame
-    /*
-    void LateUpdate()
-    {
-        //var enemyTrigger = Input.GetKey(KeyCode.H);
-        if (turnManager.isEnemyTurn)
-        {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.zero);
-
-            if (hit.HasValue)
-            {
-                OverlayTile tile = hit.Value.collider.gameObject.GetComponent<OverlayTile>();
-                character = GameObject.Find("hamilton(Clone)");
-            }
-            characterTile = character.GetComponent<CharacterInfo>().getCharTile();
-            enemyTile = OverlayTileContainer.transform.GetChild(8).GetComponent<OverlayTile>();
-            MoveTowardPlayer();
-        }
-    }
-    private void PositionEnemyOnLine(OverlayTile tile)
-    {
-        this.transform.position = new Vector3(tile.transform.position.x, tile.transform.position.y + 0.0001f, tile.transform.position.z);
-        this.GetComponent<SpriteRenderer>().sortingOrder = tile.GetComponent<SpriteRenderer>().sortingOrder;
-        enemyTile = tile;
-    }
-
-    public void MoveTowardPlayer()
-    {
-        if (rangeFinderTiles.Contains(characterTile))
-        {
-            path = pathFinder.FindPath(enemyTile, characterTile, rangeFinderTiles);
-        }
-
-        if (path.Count > 0 && isMoving)
-        {
-            MoveAlongPath();
-        }
-    }
-
-    private void MoveAlongPath()
-    {
-        var step = speed * Time.deltaTime;
-
-        float zIndex = path[0].transform.position.z;
-        Vector3 temp = this.transform.position;
-        this.transform.position = Vector2.MoveTowards(this.transform.position, path[0].transform.position, step);
-        this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, zIndex);
-
-        if (temp.x < path[0].transform.position.x)
-        {
-            this.GetComponent<PlayerMove>().FlipDirection(1);
-        }
-        else if (temp.x > path[0].transform.position.x)
-        {
-            this.GetComponent<PlayerMove>().FlipDirection(-1);
-        }
-        else
-        {
-            this.GetComponent<PlayerMove>().FlipDirection(0);
-        }
-
-        // When character reaches destination
-        if (Vector2.Distance(this.transform.position, path[0].transform.position) < 0.00001f)
-        {
-            PositionEnemyOnLine(path[0]);
-            path.RemoveAt(0); // delete path
-        }
-
-        if (path.Count == 0)
-        {
-            GetInRangeTiles();
-            isMoving = false;
-        }
-    }
-
-    public void GetInRangeTiles()
-    {
-        //Debug.Log(turnManager.remainingMovePts);
-        rangeFinderTiles = rangeFinder.GetTilesInRange(new Vector2Int(enemyTile.gridLocation.x, enemyTile.gridLocation.y), 3);
-
-        foreach (var item in rangeFinderTiles)
-        {
-
-            Debug.Log("Reveal Tile");
-            item.ShowTile();
-        }
-    }
-    */
 }
