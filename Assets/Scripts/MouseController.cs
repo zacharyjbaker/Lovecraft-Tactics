@@ -180,42 +180,13 @@ public class MouseController : MonoBehaviour
                 OverlayTile tile = hit.Value.collider.gameObject.GetComponent<OverlayTile>();
                 cursor.transform.position = tile.transform.position;
                 cursor.gameObject.GetComponent<SpriteRenderer>().sortingOrder = tile.transform.GetComponent<SpriteRenderer>().sortingOrder;
-
-                //if (rangeFinderTiles.Contains(tile))
-                //{
-                //    path = pathFinder.FindPath(character.standingOnTile, tile, rangeFinderTiles);
-                //}
-
-                //if (Input.GetMouseButtonDown(0) && turnManager.outOfAmmo)
-                //{
-                //    Debug.Log("Out of molotovs for this turn!");
-                //}
          
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0) && !turnManager.outOfMolotov)
                 {
+                    turnManager.GetComponent<TurnManager>().UseMolotov();
                     Debug.Log("Spawn Fire");
                     GameObject fire = Instantiate(firePrefab, tile.transform.position, tile.transform.rotation, EnemyList.transform);
                     fire.GetComponent<SpriteRenderer>().sortingOrder = 7;
-                    //isShot = true;
-                    //HideInRangeTilesShooting();
-                    //turnManager.GetComponent<TurnManager>().UseBullet();
-                    ////tile.ShowTile();
-                    //character.GetComponent<PlayerMove>().ShootAnimation();
-                    ////tile.gameObject.GetComponent<OverlayTile>().HideTile();
-
-                    //Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    //Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
-
-                    ////RaycastHit2D[] hits = Physics2D.RaycastAll(mousePos2D, Vector2.zero);
-
-                    //RaycastHit2D shotHit = Physics2D.Raycast(mousePos2D, Vector2.zero);
-
-                    //if (shotHit.collider.gameObject.tag == "Enemy")
-                    //{
-                    //    StartCoroutine(DealDamage(2f, shotHit.collider.gameObject));
-                    //}
-
-                    //StartCoroutine(ResetShotState());
                 }
             }
         }

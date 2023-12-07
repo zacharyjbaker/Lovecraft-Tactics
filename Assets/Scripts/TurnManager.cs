@@ -22,9 +22,8 @@ public class TurnManager : MonoBehaviour
     [SerializeField] private GameObject OverlayTileContainer;
     [SerializeField] GameObject enemyPrefab;
     [SerializeField] GameObject[] spawners;
-
-    [SerializeField] GameObject backgroundMusic;
-    [SerializeField] AudioClip[] bgmusic;
+    [SerializeField] GameObject enemyList;
+    [SerializeField] GameObject objectList;
 
     public BattleState state;
     private bool continueState;
@@ -40,16 +39,13 @@ public class TurnManager : MonoBehaviour
     public int remainingMovePts = 5;
     public bool isFirstShot = true;
     public bool outOfAmmo = false;
+    public bool outOfMolotov = false;
     private int rand;
     private List<int> tempRand = new List<int>();
-    [SerializeField] GameObject enemyList;
-    [SerializeField] GameObject objectList;
-
 
     // Start is called before the first frame update
     void Start()
     {
-        backgroundMusic.GetComponent<AudioSource>().clip = bgmusic[Random.Range(0, 2)];
         continueState = false;
         state = BattleState.START;
         StartCoroutine(SetupBattle());
@@ -114,6 +110,11 @@ public class TurnManager : MonoBehaviour
         }
     }
 
+    public void UseMolotov()
+    {
+        outOfMolotov = true;
+    }
+
     public int SubMovePoints(int subtraction)
     {
         remainingMovePts -= subtraction;
@@ -131,6 +132,7 @@ public class TurnManager : MonoBehaviour
         isAbility2Selected = false;
         isFirstShot = true;
         outOfAmmo = false;
+        outOfMolotov = false;
 
         mouseController.HideInRangeTilesShooting();
         mouseController.GetInRangeTiles();

@@ -432,10 +432,8 @@ MonoBehaviour:
   - {fileID: 1552004992}
   - {fileID: 37789662}
   - {fileID: 351271631}
-  backgroundMusic: {fileID: 575015048}
-  bgmusic:
-  - {fileID: 8300000, guid: e106f5a1df3c84f8f9ce27546d693c45, type: 3}
-  - {fileID: 8300000, guid: e106f5a1df3c84f8f9ce27546d693c45, type: 3}
+  enemyList: {fileID: 1211073911}
+  objectList: {fileID: 0}
   state: 0
   isPlayerTurn: 0
   isStart: 1
@@ -449,8 +447,6 @@ MonoBehaviour:
   remainingMovePts: 5
   isFirstShot: 0
   outOfAmmo: 0
-  enemyList: {fileID: 1211073911}
-  objectList: {fileID: 0}
 --- !u!4 &484703629
 Transform:
   m_ObjectHideFlags: 0
@@ -729,6 +725,7 @@ GameObject:
   m_Component:
   - component: {fileID: 575015050}
   - component: {fileID: 575015049}
+  - component: {fileID: 575015051}
   m_Layer: 0
   m_Name: BackgroundMusic
   m_TagString: Untagged
@@ -747,8 +744,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e106f5a1df3c84f8f9ce27546d693c45, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.612
+  m_PlayOnAwake: 0
+  m_Volume: 0.247
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -847,6 +844,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &575015051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575015048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35c7aa4f0f1fd4d23a3db87e9e6aac78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgmusic:
+  - {fileID: 8300000, guid: f4b72613ee7642449bb0d2f8b55f83e0, type: 3}
+  - {fileID: 8300000, guid: e106f5a1df3c84f8f9ce27546d693c45, type: 3}
 --- !u!1 &577361196
 GameObject:
   m_ObjectHideFlags: 0
