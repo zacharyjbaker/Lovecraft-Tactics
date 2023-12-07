@@ -35,6 +35,8 @@ public class TurnManager : MonoBehaviour
     public int remainingMovePts = 5;
     public bool isFirstShot = true;
     public bool outOfAmmo = false;
+    [SerializeField] GameObject[] enemyList;
+    [SerializeField] GameObject objectList;
 
 
     // Start is called before the first frame update
@@ -240,6 +242,22 @@ public class TurnManager : MonoBehaviour
                 state = BattleState.ENEMYTURN;
                 Debug.Log("ENEMYTURN");
                 EnemyTurn();
+                foreach (GameObject e in enemyList)
+                {
+                    Debug.Log(e);
+                    if (e.tag == "Fire")
+                    {
+                        Debug.Log("Fire");
+                        if (e.GetComponent<Fire>().timer == 0)
+                        {
+                            Destroy(e);
+                        }
+                        else { e.GetComponent<Fire>().timer--; }
+                        
+                    }
+                    else if (e == null) { continue; }
+                    else { e.GetComponent<EnemyLogic>().fireDamage = false; }
+                }
             }
 
             else if (menu && !delay)

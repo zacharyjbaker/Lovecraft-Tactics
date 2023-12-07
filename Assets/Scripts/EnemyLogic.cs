@@ -5,6 +5,8 @@ using UnityEngine;
 using static ArrowTranslator;
 using UnityEngine.TextCore.Text;
 using Unity.Burst.CompilerServices;
+using System.Linq;
+using System.Security.Cryptography;
 
 public class EnemyLogic : MonoBehaviour
 {
@@ -13,7 +15,7 @@ public class EnemyLogic : MonoBehaviour
     [SerializeField] private GameObject character;
     [SerializeField] private GameObject OverlayTileContainer;
     [SerializeField] private OverlayTile characterTile;
-    //[SerializeField] private TurnManager turnManager;
+    [SerializeField] private TurnManager turnManager;
     private PathFinder pathFinder;
     private RangeFinder rangeFinder;
     private List<OverlayTile> path;
@@ -21,6 +23,7 @@ public class EnemyLogic : MonoBehaviour
     Animator animator;
     public OverlayTile enemyTile;
     private bool isMoving;
+    public bool fireDamage = false;
     public float speed;
    
 
@@ -29,7 +32,6 @@ public class EnemyLogic : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         hitPoints = startingHitPoints;
-        GetInRangeTiles();
     }
 
     IEnumerator Wait()
@@ -46,16 +48,53 @@ public class EnemyLogic : MonoBehaviour
             transform.localPosition -= new Vector3(0.06f, 0, 0);
             yield return new WaitForSeconds(0.01f);
         }
+    }
+
+    public void TakeDamage(int dmgValue)
+    {
+        hitPoints -= dmgValue;
+        Debug.Log("Remaining HP" + hitPoints);
+
+        if (hitPoints <= (startingHitPoints * 0.25f)) { this.GetComponent<SpriteRenderer>().color = new Color(1f, 0.5f, 0.5f, 1f); }
+        else if (hitPoints <= (startingHitPoints * 0.50f)) { this.GetComponent<SpriteRenderer>().color = new Color(1f, 0.65f, 0.65f, 1f); }
+        else if (hitPoints <= (startingHitPoints * 0.75f)) { this.GetComponent<SpriteRenderer>().color = new Color(1f, 0.8f, 0.8f, 1f); }
+
+        StartCoroutine(Shake(12));
+        //this.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+
+        if (hitPoints <= 0f)
+        {
+            StartCoroutine(Shake(36));
+            Destroy(gameObject, 0.8f);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("Collision");
+        if (other.CompareTag("Fire") && fireDamage == false)
+        {
+            Debug.Log("Fire Hit");
+            TakeDamage(1);
+            fireDamage = true;
+        }
 
     }
 
     // Update is called once per frame
-    void Update()
+    /*
+    void LateUpdate()
     {
-        var enemyTrigger = Input.GetKey(KeyCode.H);
-        if (enemyTrigger)
+        //var enemyTrigger = Input.GetKey(KeyCode.H);
+        if (turnManager.isEnemyTurn)
         {
-            character = GameObject.Find("hamilton(Clone)");
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.zero);
+
+            if (hit.HasValue)
+            {
+                OverlayTile tile = hit.Value.collider.gameObject.GetComponent<OverlayTile>();
+                character = GameObject.Find("hamilton(Clone)");
+            }
             characterTile = character.GetComponent<CharacterInfo>().getCharTile();
             enemyTile = OverlayTileContainer.transform.GetChild(8).GetComponent<OverlayTile>();
             MoveTowardPlayer();
@@ -125,28 +164,9 @@ public class EnemyLogic : MonoBehaviour
         foreach (var item in rangeFinderTiles)
         {
 
-    Debug.Log("Reveal Tile");
+            Debug.Log("Reveal Tile");
             item.ShowTile();
         }
     }
-
-    public void TakeDamage(int dmgValue)
-    {
-        hitPoints -= dmgValue;
-        Debug.Log("Remaining HP" + hitPoints);
-
-        if (hitPoints <= (startingHitPoints * 0.25f)) { this.GetComponent<SpriteRenderer>().color = new Color(1f, 0.5f, 0.5f, 1f); }
-        else if (hitPoints <= (startingHitPoints * 0.50f)) { this.GetComponent<SpriteRenderer>().color = new Color(1f, 0.65f, 0.65f, 1f); }
-        else if (hitPoints <= (startingHitPoints * 0.75f)) { this.GetComponent<SpriteRenderer>().color = new Color(1f, 0.8f, 0.8f, 1f); }
-
-        StartCoroutine(Shake(12));
-        //this.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
-
-        if (hitPoints <= 0f)
-        {
-            StartCoroutine(Shake(36));
-            Destroy(gameObject, 0.8f);
-            
-        }
-    }
+    */
 }

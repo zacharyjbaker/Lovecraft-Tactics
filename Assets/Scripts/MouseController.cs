@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 using static ArrowTranslator;
 using System.Collections;
 using JetBrains.Annotations;
+using Unity.Burst.CompilerServices;
 
 public class MouseController : MonoBehaviour
 {
@@ -12,7 +13,12 @@ public class MouseController : MonoBehaviour
     public float speed;
     public GameObject characterPrefab;
     private CharacterInfo character;
+    public GameObject firePrefab;
+    [SerializeField] public Sprite x1Cursor;
+    [SerializeField] public Sprite x3Cursor;
     [SerializeField] private int gunRange = 0;
+    [SerializeField] GameObject EnemyList;
+    //[SerializeField] private LayerMask test;
 
     private PathFinder pathFinder;
     private RangeFinder rangeFinder;
@@ -52,6 +58,7 @@ public class MouseController : MonoBehaviour
         // Movement selection
         if ((turnManager.isPlayerTurn || turnManager.isStart) && !turnManager.isAbilitySelected && !turnManager.menu)
         {
+            cursor.GetComponent<SpriteRenderer>().sprite = x1Cursor;
             RaycastHit2D? hit = GetFocusedOnTile();
 
             if (hit.HasValue)
@@ -107,7 +114,7 @@ public class MouseController : MonoBehaviour
         // Shooting selection
         else if (turnManager.isPlayerTurn && turnManager.isAbility1Selected && !turnManager.menu)
         {
-
+            cursor.GetComponent<SpriteRenderer>().sprite = x1Cursor;
             if (isShot || turnManager.outOfAmmo)
             {
                 HideInRangeTilesShooting();
@@ -116,7 +123,7 @@ public class MouseController : MonoBehaviour
             {
                 GetInRangeTilesShooting();
             }
-            Debug.Log(isShot);
+            //Debug.Log(isShot);
             //Debug.Log("Ability");
             RaycastHit2D? hit = GetFocusedOnTile();
 
@@ -143,7 +150,7 @@ public class MouseController : MonoBehaviour
                     //tile.ShowTile();
                     character.GetComponent<PlayerMove>().ShootAnimation();
                     //tile.gameObject.GetComponent<OverlayTile>().HideTile();
-                    
+
                     Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                     Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
 
@@ -157,6 +164,58 @@ public class MouseController : MonoBehaviour
                     }
 
                     StartCoroutine(ResetShotState());
+                }
+            }
+        }
+
+        // Molotov selection
+        else if (turnManager.isPlayerTurn && turnManager.isAbility2Selected && !turnManager.menu)
+        {
+            //Debug.Log("Molotov");
+            cursor.GetComponent<SpriteRenderer>().sprite = x3Cursor;
+            GetInRangeTilesShooting();
+            RaycastHit2D? hit = GetFocusedOnTile();
+            if (hit.HasValue)
+            {
+                OverlayTile tile = hit.Value.collider.gameObject.GetComponent<OverlayTile>();
+                cursor.transform.position = tile.transform.position;
+                cursor.gameObject.GetComponent<SpriteRenderer>().sortingOrder = tile.transform.GetComponent<SpriteRenderer>().sortingOrder;
+
+                //if (rangeFinderTiles.Contains(tile))
+                //{
+                //    path = pathFinder.FindPath(character.standingOnTile, tile, rangeFinderTiles);
+                //}
+
+                //if (Input.GetMouseButtonDown(0) && turnManager.outOfAmmo)
+                //{
+                //    Debug.Log("Out of molotovs for this turn!");
+                //}
+         
+                if (Input.GetMouseButtonDown(0))
+                {
+                    Debug.Log("Spawn Fire");
+                    GameObject fire = Instantiate(firePrefab, tile.transform.position, tile.transform.rotation, EnemyList.transform);
+                    fire.GetComponent<SpriteRenderer>().sortingOrder = 7;
+                    //isShot = true;
+                    //HideInRangeTilesShooting();
+                    //turnManager.GetComponent<TurnManager>().UseBullet();
+                    ////tile.ShowTile();
+                    //character.GetComponent<PlayerMove>().ShootAnimation();
+                    ////tile.gameObject.GetComponent<OverlayTile>().HideTile();
+
+                    //Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    //Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+
+                    ////RaycastHit2D[] hits = Physics2D.RaycastAll(mousePos2D, Vector2.zero);
+
+                    //RaycastHit2D shotHit = Physics2D.Raycast(mousePos2D, Vector2.zero);
+
+                    //if (shotHit.collider.gameObject.tag == "Enemy")
+                    //{
+                    //    StartCoroutine(DealDamage(2f, shotHit.collider.gameObject));
+                    //}
+
+                    //StartCoroutine(ResetShotState());
                 }
             }
         }
