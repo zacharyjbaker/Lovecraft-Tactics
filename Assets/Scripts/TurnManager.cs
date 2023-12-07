@@ -140,6 +140,7 @@ public class TurnManager : MonoBehaviour
 
     private void EnemyTurn()
     {
+
         isEnemyTurn = true;
         menu = false;
 
@@ -264,22 +265,6 @@ public class TurnManager : MonoBehaviour
                 state = BattleState.ENEMYTURN;
                 Debug.Log("ENEMYTURN");
                 EnemyTurn();
-                foreach (Transform child in enemyList.transform)
-                {
-                    Debug.Log(child.gameObject.name);
-                    if (child.gameObject.tag == "Fire")
-                    {
-                        Debug.Log("Fire");
-                        if (child.gameObject.GetComponent<Fire>().timer == 0)
-                        {
-                            Destroy(child.gameObject);
-                        }
-                        else { child.gameObject.GetComponent<Fire>().timer--; }
-                        
-                    }
-                    else if (child.gameObject != null) { child.gameObject.GetComponent<EnemyLogic>().fireDamage = false; }
-                    else { continue; }
-                }
             }
 
             else if (menu && !delay)
@@ -316,6 +301,24 @@ public class TurnManager : MonoBehaviour
                 state = BattleState.PLAYERTURN;
                 Debug.Log("PLAYERTURN");
                 PlayerTurn();
+                foreach (Transform child in enemyList.transform)
+                {
+                    Debug.Log(child.gameObject.name);
+                    if (child.gameObject.tag == "Fire")
+                    {
+                        child.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                        child.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+                        Debug.Log("Fire");
+                        if (child.gameObject.GetComponent<Fire>().timer == 0)
+                        {
+                            Destroy(child.gameObject);
+                        }
+                        else { child.gameObject.GetComponent<Fire>().timer--; }
+
+                    }
+                    else if (child.gameObject != null) { child.gameObject.GetComponent<EnemyLogic>().fireDamage = false; }
+                    else { continue; }
+                }
                 SpawnHorde();
             }
         }

@@ -89,7 +89,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!95 &7837062525958391766
 Animator:
   serializedVersion: 5
@@ -153,6 +153,8 @@ MonoBehaviour:
   moveSpeed: 3
   rigid: {fileID: 6150233281894108380}
   animator: {fileID: 7837062525958391766}
+  cursor: {fileID: 0}
+  turnManager: {fileID: 0}
   sfx:
   - {fileID: 8300000, guid: 3b13cfb6a59f37a49af38066c7da44eb, type: 3}
 --- !u!114 &-479594439125844982

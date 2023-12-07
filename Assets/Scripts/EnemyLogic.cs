@@ -69,7 +69,7 @@ public class EnemyLogic : MonoBehaviour
         }
     }
 
-    void OnTriggerStay2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         //Debug.Log("Collision");
         if (other.CompareTag("Fire") && fireDamage == false)
