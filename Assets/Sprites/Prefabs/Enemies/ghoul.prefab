@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8620943446244942317}
   - component: {fileID: 8336785661579735566}
   - component: {fileID: -8498167321278770288}
+  - component: {fileID: 7036648968203887609}
   m_Layer: 0
   m_Name: ghoul
   m_TagString: Enemy
@@ -154,6 +155,7 @@ MonoBehaviour:
   enemyTile: {fileID: 0}
   fireDamage: 0
   speed: 0
+  player: {fileID: 0}
 --- !u!95 &8336785661579735566
 Animator:
   serializedVersion: 5
@@ -202,3 +204,38 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!58 &7036648968203887609
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7645168982931191190}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.5}
+  serializedVersion: 2
+  m_Radius: 1

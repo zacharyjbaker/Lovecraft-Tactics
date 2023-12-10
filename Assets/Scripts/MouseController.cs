@@ -14,6 +14,7 @@ public class MouseController : MonoBehaviour
     public GameObject characterPrefab;
     private CharacterInfo character;
     public GameObject firePrefab;
+    [SerializeField] public GameObject hitSquare;
     [SerializeField] public Sprite x1Cursor;
     [SerializeField] public Sprite x3Cursor;
     [SerializeField] private int gunRange = 0;
@@ -94,6 +95,10 @@ public class MouseController : MonoBehaviour
                     {
                         character = Instantiate(characterPrefab).GetComponent<CharacterInfo>();
                         PositionCharacterOnLine(tile);
+                        Vector3 squareSpawn = character.transform.position;
+                        squareSpawn.z -= 165;
+                        squareSpawn.y += 0.5f;
+                        Instantiate(hitSquare, squareSpawn, character.transform.rotation, character.transform);
                         GetInRangeTiles();
                     }
                     else

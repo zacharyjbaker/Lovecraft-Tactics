@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.TextCore.Text;
+using Unity.VisualScripting;
 
 public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
 
@@ -96,6 +97,11 @@ public class TurnManager : MonoBehaviour
         PlayerTurn();
     }
 
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(2f);
+    }
+
     public void UseBullet()
     {
         if (isFirstShot) 
@@ -147,7 +153,6 @@ public class TurnManager : MonoBehaviour
 
     private void EnemyTurn()
     {
-
         isEnemyTurn = true;
         menu = false;
 
@@ -161,6 +166,14 @@ public class TurnManager : MonoBehaviour
 
         UIContainer.GetComponentsInChildren<SpriteRenderer>()[0].color = new Color(1, 1, 1, 0);
         UIContainer.GetComponentsInChildren<SpriteRenderer>()[1].color = new Color(1, 1, 1, 0);
+
+        foreach (Transform child in enemyList.transform)
+        {
+            if (child.gameObject != null && child.gameObject.tag != "Fire")
+            {
+                child.gameObject.GetComponent<EnemyLogic>().isMoving = true;
+            }
+        }
     }
     public void Ability1Selected()
     {
@@ -323,7 +336,13 @@ public class TurnManager : MonoBehaviour
                         else { child.gameObject.GetComponent<Fire>().timer--; }
 
                     }
-                    else if (child.gameObject != null) { child.gameObject.GetComponent<EnemyLogic>().fireDamage = false; }
+                    else if (child.gameObject != null)
+                    {
+                        child.gameObject.GetComponent<EnemyLogic>().fireDamage = false;
+                        
+                        //StartCoroutine(Wait());
+                        //child.gameObject.GetComponent<EnemyLogic>().isMoving = false;
+                    }
                     else { continue; }
                 }
                 SpawnHorde();

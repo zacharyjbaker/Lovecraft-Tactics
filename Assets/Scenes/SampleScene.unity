@@ -447,6 +447,7 @@ MonoBehaviour:
   remainingMovePts: 5
   isFirstShot: 0
   outOfAmmo: 0
+  outOfMolotov: 0
 --- !u!4 &484703629
 Transform:
   m_ObjectHideFlags: 0
@@ -5927,6 +5928,7 @@ MonoBehaviour:
   speed: 3
   characterPrefab: {fileID: 8258419401437315237, guid: 75dc17f355ea6074193c382290a9605f, type: 3}
   firePrefab: {fileID: 7508991665532293598, guid: 8aaf8624b26264a27bd4678d7bd63c27, type: 3}
+  hitSquare: {fileID: 9045956915157575733, guid: b1128d7dc6eb44c56b1c83d7710cf439, type: 3}
   x1Cursor: {fileID: 1713532898530267708, guid: 25b724a280fb74c8aa831ff0a385f42c, type: 3}
   x3Cursor: {fileID: 4226029372096720056, guid: 7dc5bdc6560c44353bfcce1db0a6f8b2, type: 3}
   gunRange: 5

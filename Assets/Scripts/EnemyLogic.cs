@@ -22,21 +22,25 @@ public class EnemyLogic : MonoBehaviour
     private List<OverlayTile> rangeFinderTiles;
     Animator animator;
     public OverlayTile enemyTile;
-    private bool isMoving;
+    public bool isMoving = false;
     public bool fireDamage = false;
+    public bool inPlayerRange = false;
     public float speed;
+    public GameObject player;
    
 
     // Start is called before the first frame update
     void Start()
     {
+        
         animator = GetComponent<Animator>();
         hitPoints = startingHitPoints;
     }
 
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
+        isMoving = false;
     }
 
     IEnumerator Shake(int length)
@@ -78,6 +82,53 @@ public class EnemyLogic : MonoBehaviour
             TakeDamage(1);
             fireDamage = true;
         }
+
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("Reached Player");
+            isMoving = false;
+            Attack();
+        }
+    }
+
+    private void Update()
+    {
+        if (isMoving)
+        {
+            player = GameObject.Find("hamilton(Clone)");
+            Quaternion angleToPlayer = Quaternion.LookRotation(player.transform.position - this.transform.position);
+            Debug.Log(this.name + ": Angle: " + angleToPlayer.eulerAngles.y);
+            Vector3 target = this.transform.position;
+
+            if (angleToPlayer.eulerAngles.y < 45)
+            {
+                target.y += 1;
+            }
+            else if (angleToPlayer.eulerAngles.y >= 45 && angleToPlayer.eulerAngles.y < 135)
+            {
+                target.x += 1;
+            }
+            else if (angleToPlayer.eulerAngles.y >= 135 && angleToPlayer.eulerAngles.y < 225)
+            {
+                target.y -= 1;
+            }
+            else if (angleToPlayer.eulerAngles.y >= 225 && angleToPlayer.eulerAngles.y < 315)
+            {
+                target.x -= 1;
+            }
+            else if (angleToPlayer.eulerAngles.y >= 315)
+            {
+                target.y += 1;
+            }
+            
+            this.transform.position = Vector3.MoveTowards(this.transform.position, target, 0.003f);
+
+            StartCoroutine(Wait());
+        }
+    }
+
+    private void Attack()
+    {
 
     }
 }
