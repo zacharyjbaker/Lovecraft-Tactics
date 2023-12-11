@@ -159,6 +159,7 @@ MonoBehaviour:
   inPlayerRange: 0
   movedTwice: 0
   movedThrice: 0
+  reachedPlayer: 0
   speed: 0
   player: {fileID: 0}
 --- !u!95 &8336785661579735566
@@ -243,4 +244,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.5}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.827

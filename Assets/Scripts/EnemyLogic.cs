@@ -29,6 +29,7 @@ public class EnemyLogic : MonoBehaviour
     public bool inPlayerRange = false;
     public bool movedTwice = false;
     public bool movedThrice = false;
+    public bool reachedPlayer = false;
     public float speed;
     public GameObject player;
     private Vector3 target;
@@ -105,11 +106,26 @@ public class EnemyLogic : MonoBehaviour
             fireDamage = true;
         }
 
+        //if (other.CompareTag("Enemy"))
+        //{
+        //    isMoving = false;
+        //}
+
         if (other.CompareTag("Player"))
         {
             Debug.Log("Reached Player");
             isMoving = false;
+            reachedPlayer = true;
             Attack();
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("Exited Player");
+            reachedPlayer = false;
         }
     }
 
@@ -123,10 +139,13 @@ public class EnemyLogic : MonoBehaviour
 
     public void Move()
     {
-        Debug.Log(this.name + " begins move");
-        isMoving = true;
-        target = SetAngle();
-        StartCoroutine(MoveToward(target));
+        if (!reachedPlayer)
+        {
+            Debug.Log(this.name + " begins move");
+            isMoving = true;
+            target = SetAngle();
+            StartCoroutine(MoveToward(target));
+        }
     }
 
     private Vector3 SetAngle()
