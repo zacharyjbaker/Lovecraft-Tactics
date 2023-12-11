@@ -339,7 +339,9 @@ public class TurnManager : MonoBehaviour
                     else if (child.gameObject != null)
                     {
                         child.gameObject.GetComponent<EnemyLogic>().fireDamage = false;
-                        
+                        child.gameObject.GetComponent<EnemyLogic>().movedTwice = false;
+                        child.gameObject.GetComponent<EnemyLogic>().movedThrice = false;
+
                         //StartCoroutine(Wait());
                         //child.gameObject.GetComponent<EnemyLogic>().isMoving = false;
                     }

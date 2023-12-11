@@ -148,7 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHitPoints: 2
   hitPoints: 3
-  movementSpeed: 2
+  movementSpeed: 3
   character: {fileID: 0}
   OverlayTileContainer: {fileID: 0}
   characterTile: {fileID: 0}
@@ -157,7 +157,8 @@ MonoBehaviour:
   isMoving: 0
   fireDamage: 0
   inPlayerRange: 0
-  angleSet: 0
+  movedTwice: 0
+  movedThrice: 0
   speed: 0
   player: {fileID: 0}
 --- !u!95 &8336785661579735566

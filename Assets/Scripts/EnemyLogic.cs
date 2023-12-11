@@ -27,7 +27,8 @@ public class EnemyLogic : MonoBehaviour
     public bool isMoving = false;
     public bool fireDamage = false;
     public bool inPlayerRange = false;
-    public bool angleSet = false;
+    public bool movedTwice = false;
+    public bool movedThrice = false;
     public float speed;
     public GameObject player;
     private Vector3 target;
@@ -45,8 +46,21 @@ public class EnemyLogic : MonoBehaviour
     {
         if (target != null)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1.2f);
             isMoving = false;
+            Debug.Log(this.name + " finished a move");
+            if (movementSpeed >= 2 && movedTwice == false)
+            {
+                movedTwice = true;
+                Move();
+                Debug.Log(this.name + " finished move 2");
+            }
+            else if (movementSpeed >= 3 && movedTwice == true && movedThrice == false)
+            {
+                movedThrice = true;
+                Move();
+                Debug.Log(this.name + " finished move 3");
+            }
         }
         
     }
@@ -109,6 +123,7 @@ public class EnemyLogic : MonoBehaviour
 
     public void Move()
     {
+        Debug.Log(this.name + " begins move");
         isMoving = true;
         target = SetAngle();
         StartCoroutine(MoveToward(target));
@@ -116,10 +131,10 @@ public class EnemyLogic : MonoBehaviour
 
     private Vector3 SetAngle()
     {
-        Debug.Log("Set Angle of " + this.name);
+        //Debug.Log("Set Angle of " + this.name);
         player = GameObject.Find("hamilton(Clone)");
         float angleToPlayer = Mathf.Atan2(player.transform.position.y - this.transform.position.y, player.transform.position.x - this.transform.position.x) * Mathf.Rad2Deg;
-        Debug.Log(this.name + ": Angle: " + angleToPlayer);
+        //Debug.Log(this.name + ": Angle: " + angleToPlayer);
 
         Debug.DrawLine(this.transform.position, player.transform.position, Color.red, 1);
 
