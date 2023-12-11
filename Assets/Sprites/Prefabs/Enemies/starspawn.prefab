@@ -148,12 +148,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHitPoints: 10
   hitPoints: 3
+  movementSpeed: 1
   character: {fileID: 0}
   OverlayTileContainer: {fileID: 0}
   characterTile: {fileID: 0}
   turnManager: {fileID: 0}
   enemyTile: {fileID: 0}
+  isMoving: 0
   fireDamage: 0
+  inPlayerRange: 0
+  angleSet: 0
   speed: 0
   player: {fileID: 0}
 --- !u!95 &8336785661579735566

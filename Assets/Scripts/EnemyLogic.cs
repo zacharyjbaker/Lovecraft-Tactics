@@ -7,11 +7,13 @@ using UnityEngine.TextCore.Text;
 using Unity.Burst.CompilerServices;
 using System.Linq;
 using System.Security.Cryptography;
+using static UnityEngine.GraphicsBuffer;
 
 public class EnemyLogic : MonoBehaviour
 {
     [SerializeField] private float startingHitPoints = 0f;
     [SerializeField] private float hitPoints = 0f;
+    [SerializeField] private float movementSpeed = 0f;
     [SerializeField] private GameObject character;
     [SerializeField] private GameObject OverlayTileContainer;
     [SerializeField] private OverlayTile characterTile;
@@ -25,8 +27,10 @@ public class EnemyLogic : MonoBehaviour
     public bool isMoving = false;
     public bool fireDamage = false;
     public bool inPlayerRange = false;
+    public bool angleSet = false;
     public float speed;
     public GameObject player;
+    private Vector3 target;
    
 
     // Start is called before the first frame update
@@ -37,10 +41,14 @@ public class EnemyLogic : MonoBehaviour
         hitPoints = startingHitPoints;
     }
 
-    IEnumerator Wait()
+    IEnumerator MoveToward(Vector3 target)
     {
-        yield return new WaitForSeconds(1f);
-        isMoving = false;
+        if (target != null)
+        {
+            yield return new WaitForSeconds(1f);
+            isMoving = false;
+        }
+        
     }
 
     IEnumerator Shake(int length)
@@ -95,36 +103,46 @@ public class EnemyLogic : MonoBehaviour
     {
         if (isMoving)
         {
-            player = GameObject.Find("hamilton(Clone)");
-            Quaternion angleToPlayer = Quaternion.LookRotation(player.transform.position - this.transform.position);
-            Debug.Log(this.name + ": Angle: " + angleToPlayer.eulerAngles.y);
-            Vector3 target = this.transform.position;
-
-            if (angleToPlayer.eulerAngles.y < 45)
-            {
-                target.y += 1;
-            }
-            else if (angleToPlayer.eulerAngles.y >= 45 && angleToPlayer.eulerAngles.y < 135)
-            {
-                target.x += 1;
-            }
-            else if (angleToPlayer.eulerAngles.y >= 135 && angleToPlayer.eulerAngles.y < 225)
-            {
-                target.y -= 1;
-            }
-            else if (angleToPlayer.eulerAngles.y >= 225 && angleToPlayer.eulerAngles.y < 315)
-            {
-                target.x -= 1;
-            }
-            else if (angleToPlayer.eulerAngles.y >= 315)
-            {
-                target.y += 1;
-            }
-            
-            this.transform.position = Vector3.MoveTowards(this.transform.position, target, 0.003f);
-
-            StartCoroutine(Wait());
+            this.transform.position = Vector3.MoveTowards(this.transform.position, target, 0.004f);
         }
+    }
+
+    public void Move()
+    {
+        isMoving = true;
+        target = SetAngle();
+        StartCoroutine(MoveToward(target));
+    }
+
+    private Vector3 SetAngle()
+    {
+        Debug.Log("Set Angle of " + this.name);
+        player = GameObject.Find("hamilton(Clone)");
+        float angleToPlayer = Mathf.Atan2(player.transform.position.y - this.transform.position.y, player.transform.position.x - this.transform.position.x) * Mathf.Rad2Deg;
+        Debug.Log(this.name + ": Angle: " + angleToPlayer);
+
+        Debug.DrawLine(this.transform.position, player.transform.position, Color.red, 1);
+
+        Vector3 target = this.transform.position;
+
+        if (angleToPlayer >= -135 && angleToPlayer < -45)
+        {
+            target.y -= 1;
+        }
+        else if (angleToPlayer >= 135 || angleToPlayer < -135)
+        {
+            target.x -= 1;
+        }
+        else if ((angleToPlayer < 45 && angleToPlayer >= 0) || (angleToPlayer > -45 && angleToPlayer <= 0))
+        {
+            target.x += 1;
+        }
+        else if (angleToPlayer >= 45 && angleToPlayer < 135)
+        {
+            target.y += 1;
+        }
+
+        return target;
     }
 
     private void Attack()

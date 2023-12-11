@@ -171,7 +171,7 @@ public class TurnManager : MonoBehaviour
         {
             if (child.gameObject != null && child.gameObject.tag != "Fire")
             {
-                child.gameObject.GetComponent<EnemyLogic>().isMoving = true;
+                child.gameObject.GetComponent<EnemyLogic>().Move();
             }
         }
     }
