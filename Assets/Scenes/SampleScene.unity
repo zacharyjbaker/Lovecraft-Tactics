@@ -149,9 +149,9 @@ MonoBehaviour:
   - {fileID: 7645168982931191190, guid: a1710f2baefeb4040879e884250ebc70, type: 3}
   - {fileID: 7645168982931191190, guid: c5235015afcb7e04389e810a6dcd64ed, type: 3}
   - {fileID: 7645168982931191190, guid: 58ce8378ab5ffe4418e893b3c9b653e3, type: 3}
+  - {fileID: 7645168982931191190, guid: 8eb3b372671e21c4caa6b1fa7e1470f4, type: 3}
   - {fileID: 7645168982931191190, guid: 49a1f5457cd43b34397570e34408b2c7, type: 3}
   - {fileID: 7645168982931191190, guid: 11ec15fdf4bff144aadb51405ba23f9c, type: 3}
-  - {fileID: 7645168982931191190, guid: 8eb3b372671e21c4caa6b1fa7e1470f4, type: 3}
   EnemyList: {fileID: 1211073911}
 --- !u!1 &39901841
 GameObject:
@@ -382,9 +382,9 @@ MonoBehaviour:
   - {fileID: 7645168982931191190, guid: a1710f2baefeb4040879e884250ebc70, type: 3}
   - {fileID: 7645168982931191190, guid: c5235015afcb7e04389e810a6dcd64ed, type: 3}
   - {fileID: 7645168982931191190, guid: 58ce8378ab5ffe4418e893b3c9b653e3, type: 3}
+  - {fileID: 7645168982931191190, guid: 8eb3b372671e21c4caa6b1fa7e1470f4, type: 3}
   - {fileID: 7645168982931191190, guid: 49a1f5457cd43b34397570e34408b2c7, type: 3}
   - {fileID: 7645168982931191190, guid: 11ec15fdf4bff144aadb51405ba23f9c, type: 3}
-  - {fileID: 7645168982931191190, guid: 8eb3b372671e21c4caa6b1fa7e1470f4, type: 3}
   EnemyList: {fileID: 1211073911}
 --- !u!1 &484703627
 GameObject:
@@ -436,6 +436,7 @@ MonoBehaviour:
   - {fileID: 351271631}
   enemyList: {fileID: 1211073911}
   objectList: {fileID: 0}
+  turnCount: 0
   state: 0
   isPlayerTurn: 0
   isStart: 1
@@ -684,9 +685,9 @@ MonoBehaviour:
   - {fileID: 7645168982931191190, guid: a1710f2baefeb4040879e884250ebc70, type: 3}
   - {fileID: 7645168982931191190, guid: c5235015afcb7e04389e810a6dcd64ed, type: 3}
   - {fileID: 7645168982931191190, guid: 58ce8378ab5ffe4418e893b3c9b653e3, type: 3}
+  - {fileID: 7645168982931191190, guid: 8eb3b372671e21c4caa6b1fa7e1470f4, type: 3}
   - {fileID: 7645168982931191190, guid: 49a1f5457cd43b34397570e34408b2c7, type: 3}
   - {fileID: 7645168982931191190, guid: 11ec15fdf4bff144aadb51405ba23f9c, type: 3}
-  - {fileID: 7645168982931191190, guid: 8eb3b372671e21c4caa6b1fa7e1470f4, type: 3}
   EnemyList: {fileID: 1211073911}
 --- !u!1 &562124322 stripped
 GameObject:
@@ -714,9 +715,9 @@ MonoBehaviour:
   - {fileID: 7645168982931191190, guid: a1710f2baefeb4040879e884250ebc70, type: 3}
   - {fileID: 7645168982931191190, guid: c5235015afcb7e04389e810a6dcd64ed, type: 3}
   - {fileID: 7645168982931191190, guid: 58ce8378ab5ffe4418e893b3c9b653e3, type: 3}
+  - {fileID: 7645168982931191190, guid: 8eb3b372671e21c4caa6b1fa7e1470f4, type: 3}
   - {fileID: 7645168982931191190, guid: 49a1f5457cd43b34397570e34408b2c7, type: 3}
   - {fileID: 7645168982931191190, guid: 11ec15fdf4bff144aadb51405ba23f9c, type: 3}
-  - {fileID: 7645168982931191190, guid: 8eb3b372671e21c4caa6b1fa7e1470f4, type: 3}
   EnemyList: {fileID: 1211073911}
 --- !u!1 &575015048
 GameObject:
@@ -2020,9 +2021,9 @@ MonoBehaviour:
   - {fileID: 7645168982931191190, guid: a1710f2baefeb4040879e884250ebc70, type: 3}
   - {fileID: 7645168982931191190, guid: c5235015afcb7e04389e810a6dcd64ed, type: 3}
   - {fileID: 7645168982931191190, guid: 58ce8378ab5ffe4418e893b3c9b653e3, type: 3}
+  - {fileID: 7645168982931191190, guid: 8eb3b372671e21c4caa6b1fa7e1470f4, type: 3}
   - {fileID: 7645168982931191190, guid: 49a1f5457cd43b34397570e34408b2c7, type: 3}
   - {fileID: 7645168982931191190, guid: 11ec15fdf4bff144aadb51405ba23f9c, type: 3}
-  - {fileID: 7645168982931191190, guid: 8eb3b372671e21c4caa6b1fa7e1470f4, type: 3}
   EnemyList: {fileID: 1211073911}
 --- !u!1 &706126615
 GameObject:
@@ -3877,9 +3878,9 @@ MonoBehaviour:
   - {fileID: 7645168982931191190, guid: a1710f2baefeb4040879e884250ebc70, type: 3}
   - {fileID: 7645168982931191190, guid: c5235015afcb7e04389e810a6dcd64ed, type: 3}
   - {fileID: 7645168982931191190, guid: 58ce8378ab5ffe4418e893b3c9b653e3, type: 3}
+  - {fileID: 7645168982931191190, guid: 8eb3b372671e21c4caa6b1fa7e1470f4, type: 3}
   - {fileID: 7645168982931191190, guid: 49a1f5457cd43b34397570e34408b2c7, type: 3}
   - {fileID: 7645168982931191190, guid: 11ec15fdf4bff144aadb51405ba23f9c, type: 3}
-  - {fileID: 7645168982931191190, guid: 8eb3b372671e21c4caa6b1fa7e1470f4, type: 3}
   EnemyList: {fileID: 1211073911}
 --- !u!1001 &1570337797
 PrefabInstance:

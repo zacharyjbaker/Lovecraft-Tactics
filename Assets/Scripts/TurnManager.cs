@@ -27,7 +27,7 @@ public class TurnManager : MonoBehaviour
     [SerializeField] GameObject[] spawners;
     [SerializeField] GameObject enemyList;
     [SerializeField] GameObject objectList;
-
+    [SerializeField] int turnCount = 1;
 
     public BattleState state;
     private bool continueState;
@@ -66,7 +66,55 @@ public class TurnManager : MonoBehaviour
 
     public void SpawnHorde()
     {
-        for (int i = 0; i < (spawners.Length / 2); i++)
+        int divisor = 6;
+        int upperEnemyLevel = 1;
+        switch(turnCount)
+        {
+            case 1:
+                divisor = 6;
+                upperEnemyLevel = 1;
+                Debug.Log("Turn " + turnCount + ": Divisor: " + divisor + ", upperEnemyLevel: " + upperEnemyLevel);
+                break;
+            case 2:
+                divisor = 4;
+                upperEnemyLevel = 2;
+                Debug.Log("Turn " + turnCount + ": Divisor: " + divisor + ", upperEnemyLevel: " + upperEnemyLevel);
+                break;
+            case 3:
+                Debug.Log("Turn " + turnCount + ": Divisor: " + divisor + ", upperEnemyLevel: " + upperEnemyLevel);
+                break;
+            case 4:
+                divisor = 3;
+                upperEnemyLevel = 3;
+                Debug.Log("Turn " + turnCount + ": Divisor: " + divisor + ", upperEnemyLevel: " + upperEnemyLevel);
+                break;
+            case 5:
+                upperEnemyLevel = 4;
+                Debug.Log("Turn " + turnCount + ": Divisor: " + divisor + ", upperEnemyLevel: " + upperEnemyLevel);
+                break;
+            case 6:
+                divisor = 2;
+                Debug.Log("Turn " + turnCount + ": Divisor: " + divisor + ", upperEnemyLevel: " + upperEnemyLevel);
+                break;
+            case 7:
+                upperEnemyLevel = 5;
+                Debug.Log("Turn " + turnCount + ": Divisor: " + divisor + ", upperEnemyLevel: " + upperEnemyLevel);
+                break;
+            case 8:
+                Debug.Log("Turn " + turnCount + ": Divisor: " + divisor + ", upperEnemyLevel: " + upperEnemyLevel);
+                break;
+            case 9:
+                divisor = 1;
+                Debug.Log("Turn " + turnCount + ": Divisor: " + divisor + ", upperEnemyLevel: " + upperEnemyLevel);
+                break;
+            case 10:
+                Debug.Log("Turn " + turnCount + ": Divisor: " + divisor + ", upperEnemyLevel: " + upperEnemyLevel);
+                break;
+            default:
+                Debug.Log("Turn " + turnCount + ": Divisor: " + divisor + ", upperEnemyLevel: " + upperEnemyLevel);
+                break;
+        }
+        for (int i = 0; i < (spawners.Length / divisor); i++)
         {
             rand = Random.Range(0, spawners.Length);
 
@@ -76,7 +124,7 @@ public class TurnManager : MonoBehaviour
             }
             tempRand.Add(rand);
             Debug.Log("Activate Spawner: " + rand);
-            spawners[rand].GetComponent<Spawner>().SpawnEnemy(Random.Range(0, 5), spawners[rand].transform);
+            spawners[rand].GetComponent<Spawner>().SpawnEnemy(Random.Range(0, upperEnemyLevel), spawners[rand].transform);
         }
         tempRand.Clear();
     }
@@ -133,7 +181,7 @@ public class TurnManager : MonoBehaviour
     private void PlayerTurn()
     {
         isPlayerTurn = true;
-        
+        turnCount += 1;
         remainingMovePts = 4;
 
         isAbilitySelected = false;
@@ -148,8 +196,8 @@ public class TurnManager : MonoBehaviour
 
         movePointsText.transform.position = new Vector3(6.63f, -4.7f, 0.0f);
         shadowMovePointsText.transform.position = new Vector3(6.63f, -4.82f, 0.0f);
-        stateText.SetText("Player Turn");
-        shadowStateText.SetText("Player Turn");
+        stateText.SetText("Player Turn: " + turnCount);
+        shadowStateText.SetText("Player Turn: " + turnCount);
         movePointsText.SetText("Move " + remainingMovePts + "/4");
         shadowMovePointsText.SetText("Move " + remainingMovePts + "/4");
     }
