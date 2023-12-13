@@ -14,6 +14,7 @@ public class EnemyLogic : MonoBehaviour
     [SerializeField] private float startingHitPoints = 0f;
     [SerializeField] private float hitPoints = 0f;
     [SerializeField] private float movementSpeed = 0f;
+    [SerializeField] private int damage = 0;
     [SerializeField] private GameObject character;
     [SerializeField] private GameObject OverlayTileContainer;
     [SerializeField] private OverlayTile characterTile;
@@ -181,6 +182,9 @@ public class EnemyLogic : MonoBehaviour
 
     private void Attack()
     {
-
+        Debug.Log("Attack");
+        animator.SetTrigger("Attack");
+        player = GameObject.Find("hamilton(Clone)");
+        player.GetComponent<CharacterInfo>().TakeHit(damage);
     }
 }

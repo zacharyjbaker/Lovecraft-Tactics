@@ -146,9 +146,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd1b77f586aba8044b3623aa3bb46828, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHitPoints: 3
-  hitPoints: 3
+  startingHitPoints: 2
+  hitPoints: 2
   movementSpeed: 1
+  damage: 2
   character: {fileID: 0}
   OverlayTileContainer: {fileID: 0}
   characterTile: {fileID: 0}

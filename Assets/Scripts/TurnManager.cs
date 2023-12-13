@@ -16,6 +16,8 @@ public class TurnManager : MonoBehaviour
     [SerializeField] TMP_Text shadowStateText;
     [SerializeField] TMP_Text movePointsText;
     [SerializeField] TMP_Text shadowMovePointsText;
+    [SerializeField] TMP_Text hitPointsText;
+    [SerializeField] TMP_Text hitPointsTextShadow;
     [SerializeField] MouseController mouseController;
     [SerializeField] GameObject UIContainer;
     [SerializeField] GameObject bullet;
@@ -25,6 +27,7 @@ public class TurnManager : MonoBehaviour
     [SerializeField] GameObject[] spawners;
     [SerializeField] GameObject enemyList;
     [SerializeField] GameObject objectList;
+
 
     public BattleState state;
     private bool continueState;
@@ -273,6 +276,12 @@ public class TurnManager : MonoBehaviour
 
     void Update()
     {
+        if (GameObject.Find("hamilton(Clone)") != null)
+        {
+            hitPointsText.SetText("HP: " + GameObject.Find("hamilton(Clone)").GetComponent<CharacterInfo>().hitPoints);
+            hitPointsTextShadow.SetText("HP: " + GameObject.Find("hamilton(Clone)").GetComponent<CharacterInfo>().hitPoints);
+        }
+
         if (isPlayerTurn)
         {
             Delay();

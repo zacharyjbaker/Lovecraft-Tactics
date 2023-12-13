@@ -184,6 +184,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cafea5de0880f48908ab9799ac573543, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingHitPoints: 20
+  hitPoints: 20
+  gameOverScene: 
   standingOnTile: {fileID: 0}
 --- !u!82 &3380469152637019964
 AudioSource:
