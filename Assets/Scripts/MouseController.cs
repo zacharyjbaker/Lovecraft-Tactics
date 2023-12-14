@@ -29,6 +29,7 @@ public class MouseController : MonoBehaviour
     private List<OverlayTile> rangeFinderTiles;
     private bool isMoving;
     private bool isShot;
+    private bool walkSFXBool = false;
 
     private void Start()
     {
@@ -189,6 +190,7 @@ public class MouseController : MonoBehaviour
                 if (Input.GetMouseButtonDown(0) && !turnManager.outOfMolotov)
                 {
                     turnManager.GetComponent<TurnManager>().UseMolotov();
+                    character.GetComponent<PlayerMove>().Molotov();
                     Debug.Log("Spawn Fire");
                     GameObject fire = Instantiate(firePrefab, tile.transform.position, tile.transform.rotation, EnemyList.transform);
                     fire.GetComponent<SpriteRenderer>().sortingOrder = 7;
@@ -199,6 +201,12 @@ public class MouseController : MonoBehaviour
 
     private void MoveAlongPath()
     {
+        if (!walkSFXBool) 
+        {
+            walkSFXBool = true;
+            character.GetComponent<PlayerMove>().WalkSFX("start"); 
+        }
+        
         var step = speed * Time.deltaTime;
 
         float zIndex = path[0].transform.position.z;
@@ -224,7 +232,8 @@ public class MouseController : MonoBehaviour
         {
             PositionCharacterOnLine(path[0]);
             path.RemoveAt(0); // delete path
-
+            character.GetComponent<PlayerMove>().WalkSFX("stop");
+            walkSFXBool = false;
         }
 
         if (path.Count == 0)

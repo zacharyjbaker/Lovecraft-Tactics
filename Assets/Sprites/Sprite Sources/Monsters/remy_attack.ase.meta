@@ -1,0 +1,1108 @@
+fileFormatVersion: 2
+guid: d82c1b272278dd341a5d8c8753c75559
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 16
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 638380925290941268
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: remy_attack_Frame_0
+    originalName: 
+    pivot: {x: 0.49999997, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 28
+      y: 100
+      width: 16
+      height: 15
+    spriteID: 1a49d4ca4990eca43a2fbbbf7fbcc617
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 28, y: 100}
+  - name: remy_attack_Frame_1
+    originalName: 
+    pivot: {x: 0.49999997, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 52
+      y: 100
+      width: 16
+      height: 15
+    spriteID: 35a6a89e7e6033b4cab23efc62c6b60a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 52, y: 100}
+  - name: remy_attack_Frame_2
+    originalName: 
+    pivot: {x: 0.49999997, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 100
+      width: 16
+      height: 15
+    spriteID: 4b8787e14a1bb684496d6d3df39a9ea5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 100}
+  - name: remy_attack_Frame_3
+    originalName: 
+    pivot: {x: 0.49999997, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 100
+      y: 100
+      width: 16
+      height: 15
+    spriteID: 2599398ee1222c34ab4abc145cbc2006
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 100, y: 100}
+  - name: remy_attack_Frame_4
+    originalName: 
+    pivot: {x: 0.49999997, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 76
+      width: 16
+      height: 16
+    spriteID: 8e67f0bdbe7b0444cb6f137cbd454b20
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 76}
+  - name: remy_attack_Frame_5
+    originalName: 
+    pivot: {x: 0.49999997, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 28
+      y: 76
+      width: 16
+      height: 16
+    spriteID: 8a7f49112118a68409e2d93af4f25f50
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 28, y: 76}
+  - name: remy_attack_Frame_6
+    originalName: 
+    pivot: {x: 0.49999997, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 52
+      y: 76
+      width: 16
+      height: 16
+    spriteID: b8b38ae64a5d14f45909dd7a7576e5af
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 52, y: 76}
+  - name: remy_attack_Frame_7
+    originalName: 
+    pivot: {x: 0.49999997, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 76
+      width: 16
+      height: 16
+    spriteID: 86343dc7d9a91704f8c0905021b61d14
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 76}
+  - name: remy_attack_Frame_8
+    originalName: 
+    pivot: {x: 0.49999997, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 100
+      y: 76
+      width: 16
+      height: 16
+    spriteID: dea4d7a4eb2b88440945fa543128d8d1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 100, y: 76}
+  - name: remy_attack_Frame_9
+    originalName: 
+    pivot: {x: 0.49999997, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 124
+      y: 76
+      width: 16
+      height: 16
+    spriteID: 91722443dfafb62438c033498e76fbe9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 124, y: 76}
+  - name: remy_attack_Frame_10
+    originalName: 
+    pivot: {x: 0.49999997, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 148
+      y: 76
+      width: 16
+      height: 16
+    spriteID: 460400d6d7954d44eb8d0a0aeb7285d7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 148, y: 76}
+  - name: remy_attack_Frame_11
+    originalName: 
+    pivot: {x: 0.49999997, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 172
+      y: 76
+      width: 16
+      height: 16
+    spriteID: bc31792875a8135419c8433eb02b95d5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 172, y: 76}
+  - name: remy_attack_Frame_12
+    originalName: 
+    pivot: {x: 0.49999997, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 196
+      y: 76
+      width: 16
+      height: 16
+    spriteID: 3bf3b62000f33f642ae86868bb311bb5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 196, y: 76}
+  - name: remy_attack_Frame_13
+    originalName: 
+    pivot: {x: 0.49999997, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 220
+      y: 76
+      width: 16
+      height: 16
+    spriteID: 6011441b6ce067d4785484f6d596522d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 220, y: 76}
+  - name: remy_attack_Frame_14
+    originalName: 
+    pivot: {x: 0.49999997, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 100
+      width: 16
+      height: 16
+    spriteID: dffd97574b8525c4aa4bca90021d9b3a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 100}
+  - name: remy_attack_Frame_15
+    originalName: 
+    pivot: {x: 0.34782606, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 215
+      y: 52
+      width: 23
+      height: 16
+    spriteID: 0f200eafe4fcfbd4a8e25fdd44b6c241
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 215, y: 52}
+  - name: remy_attack_Frame_16
+    originalName: 
+    pivot: {x: 0.32, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 182
+      y: 52
+      width: 25
+      height: 16
+    spriteID: 1e4d55e05286c164c8e0e622ac57601b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 182, y: 52}
+  - name: remy_attack_Frame_17
+    originalName: 
+    pivot: {x: 0.29629627, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 52
+      width: 27
+      height: 16
+    spriteID: 609e0608ea2e6024aab3932c7e04e5ed
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 112, y: 52}
+  - name: remy_attack_Frame_18
+    originalName: 
+    pivot: {x: 0.28571427, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 187
+      y: 28
+      width: 28
+      height: 16
+    spriteID: 5d349f9d78ff0f64d80ca6c2f2ede727
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 187, y: 28}
+  - name: remy_attack_Frame_19
+    originalName: 
+    pivot: {x: 0.28571427, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 223
+      y: 28
+      width: 28
+      height: 16
+    spriteID: 6e1a734745bf5874e86df4c81c92e7f2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 223, y: 28}
+  - name: remy_attack_Frame_20
+    originalName: 
+    pivot: {x: 0.28571427, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 52
+      width: 28
+      height: 16
+    spriteID: 4cd459be7c925e4479fa7d9745a1b97b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 52}
+  - name: remy_attack_Frame_21
+    originalName: 
+    pivot: {x: 0.27586204, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 150
+      y: 28
+      width: 29
+      height: 16
+    spriteID: e9566a5b74ff38f4c883cb289f3a5432
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 150, y: 28}
+  - name: remy_attack_Frame_22
+    originalName: 
+    pivot: {x: 0.28571427, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 40
+      y: 52
+      width: 28
+      height: 16
+    spriteID: 5f88c8ff50be39747ad8ef4151b78963
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 40, y: 52}
+  - name: remy_attack_Frame_23
+    originalName: 
+    pivot: {x: 0.29629627, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 147
+      y: 52
+      width: 27
+      height: 16
+    spriteID: f7f35b531c868184cb2555d744106181
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 147, y: 52}
+  - name: remy_attack_Frame_24
+    originalName: 
+    pivot: {x: 0.28571427, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 52
+      width: 28
+      height: 16
+    spriteID: a563bc39dcebb6e4e8f06c171fa38aed
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 52}
+  - name: remy_attack_Frame_25
+    originalName: 
+    pivot: {x: 0.26666665, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 218
+      y: 4
+      width: 30
+      height: 16
+    spriteID: 3534eb87480817c44acc99a490e2d155
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 218, y: 4}
+  - name: remy_attack_Frame_26
+    originalName: 
+    pivot: {x: 0.22857141, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 107
+      y: 28
+      width: 35
+      height: 16
+    spriteID: d4a837240a4e8e249814e1d783417da3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 107, y: 28}
+  - name: remy_attack_Frame_27
+    originalName: 
+    pivot: {x: 0.2051282, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 60
+      y: 28
+      width: 39
+      height: 16
+    spriteID: a84511968d9e0354faf5b9fd7035ebf0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 60, y: 28}
+  - name: remy_attack_Frame_28
+    originalName: 
+    pivot: {x: 0.16666666, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 28
+      width: 48
+      height: 16
+    spriteID: 232e2c6b5d1799a4cb14f607d45d2b7f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 28}
+  - name: remy_attack_Frame_29
+    originalName: 
+    pivot: {x: 0.12499999, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 64
+      height: 16
+    spriteID: 600e3b42a38033048aefd764c2cb30b4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: remy_attack_Frame_30
+    originalName: 
+    pivot: {x: 0.12499999, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 4
+      width: 64
+      height: 15
+    spriteID: 934ac7c6e5eed8c498995eaa5d2938d3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 4}
+  - name: remy_attack_Frame_31
+    originalName: 
+    pivot: {x: 0.12903224, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 148
+      y: 4
+      width: 62
+      height: 15
+    spriteID: d3b25a77f091ecd4db8203fa998d0313
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 148, y: 4}
+  - name: remy_attack_Frame_32
+    originalName: 
+    pivot: {x: 0.49999997, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 124
+      y: 100
+      width: 16
+      height: 15
+    spriteID: ec7b7b98db7c35141b3e62c1a40251d8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 124, y: 100}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -1424295538
+    name: remy_attack
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: remy_attack_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 48
+        y: 0
+        width: 16
+        height: 15
+      spriteId: 1a49d4ca4990eca43a2fbbbf7fbcc617
+    - name: remy_attack_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 48
+        y: 0
+        width: 16
+        height: 15
+      spriteId: 35a6a89e7e6033b4cab23efc62c6b60a
+    - name: remy_attack_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 48
+        y: 0
+        width: 16
+        height: 15
+      spriteId: 4b8787e14a1bb684496d6d3df39a9ea5
+    - name: remy_attack_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 48
+        y: 0
+        width: 16
+        height: 15
+      spriteId: 2599398ee1222c34ab4abc145cbc2006
+    - name: remy_attack_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      spriteId: 8e67f0bdbe7b0444cb6f137cbd454b20
+    - name: remy_attack_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      spriteId: 8a7f49112118a68409e2d93af4f25f50
+    - name: remy_attack_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      spriteId: b8b38ae64a5d14f45909dd7a7576e5af
+    - name: remy_attack_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      spriteId: 86343dc7d9a91704f8c0905021b61d14
+    - name: remy_attack_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      spriteId: dea4d7a4eb2b88440945fa543128d8d1
+    - name: remy_attack_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      spriteId: 91722443dfafb62438c033498e76fbe9
+    - name: remy_attack_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      spriteId: 460400d6d7954d44eb8d0a0aeb7285d7
+    - name: remy_attack_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      spriteId: bc31792875a8135419c8433eb02b95d5
+    - name: remy_attack_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      spriteId: 3bf3b62000f33f642ae86868bb311bb5
+    - name: remy_attack_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      spriteId: 6011441b6ce067d4785484f6d596522d
+    - name: remy_attack_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      spriteId: dffd97574b8525c4aa4bca90021d9b3a
+    - name: remy_attack_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 48
+        y: 0
+        width: 23
+        height: 16
+      spriteId: 0f200eafe4fcfbd4a8e25fdd44b6c241
+    - name: remy_attack_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 48
+        y: 0
+        width: 25
+        height: 16
+      spriteId: 1e4d55e05286c164c8e0e622ac57601b
+    - name: remy_attack_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 48
+        y: 0
+        width: 27
+        height: 16
+      spriteId: 609e0608ea2e6024aab3932c7e04e5ed
+    - name: remy_attack_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 48
+        y: 0
+        width: 28
+        height: 16
+      spriteId: 5d349f9d78ff0f64d80ca6c2f2ede727
+    - name: remy_attack_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 48
+        y: 0
+        width: 28
+        height: 16
+      spriteId: 6e1a734745bf5874e86df4c81c92e7f2
+    - name: remy_attack_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 48
+        y: 0
+        width: 28
+        height: 16
+      spriteId: 4cd459be7c925e4479fa7d9745a1b97b
+    - name: remy_attack_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 48
+        y: 0
+        width: 29
+        height: 16
+      spriteId: e9566a5b74ff38f4c883cb289f3a5432
+    - name: remy_attack_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: 48
+        y: 0
+        width: 28
+        height: 16
+      spriteId: 5f88c8ff50be39747ad8ef4151b78963
+    - name: remy_attack_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: 48
+        y: 0
+        width: 27
+        height: 16
+      spriteId: f7f35b531c868184cb2555d744106181
+    - name: remy_attack_Frame_24
+      frameIndex: 24
+      cellRect:
+        x: 48
+        y: 0
+        width: 28
+        height: 16
+      spriteId: a563bc39dcebb6e4e8f06c171fa38aed
+    - name: remy_attack_Frame_25
+      frameIndex: 25
+      cellRect:
+        x: 48
+        y: 0
+        width: 30
+        height: 16
+      spriteId: 3534eb87480817c44acc99a490e2d155
+    - name: remy_attack_Frame_26
+      frameIndex: 26
+      cellRect:
+        x: 48
+        y: 0
+        width: 35
+        height: 16
+      spriteId: d4a837240a4e8e249814e1d783417da3
+    - name: remy_attack_Frame_27
+      frameIndex: 27
+      cellRect:
+        x: 48
+        y: 0
+        width: 39
+        height: 16
+      spriteId: a84511968d9e0354faf5b9fd7035ebf0
+    - name: remy_attack_Frame_28
+      frameIndex: 28
+      cellRect:
+        x: 48
+        y: 0
+        width: 48
+        height: 16
+      spriteId: 232e2c6b5d1799a4cb14f607d45d2b7f
+    - name: remy_attack_Frame_29
+      frameIndex: 29
+      cellRect:
+        x: 48
+        y: 0
+        width: 64
+        height: 16
+      spriteId: 600e3b42a38033048aefd764c2cb30b4
+    - name: remy_attack_Frame_30
+      frameIndex: 30
+      cellRect:
+        x: 48
+        y: 0
+        width: 64
+        height: 15
+      spriteId: 934ac7c6e5eed8c498995eaa5d2938d3
+    - name: remy_attack_Frame_31
+      frameIndex: 31
+      cellRect:
+        x: 48
+        y: 0
+        width: 62
+        height: 15
+      spriteId: d3b25a77f091ecd4db8203fa998d0313
+    - name: remy_attack_Frame_32
+      frameIndex: 32
+      cellRect:
+        x: 48
+        y: 0
+        width: 16
+        height: 15
+      spriteId: ec7b7b98db7c35141b3e62c1a40251d8
+    linkedCells: []
+    parentIndex: -1
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Server
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: WebGL
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 112, y: 16}

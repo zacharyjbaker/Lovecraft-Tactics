@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8336785661579735566}
   - component: {fileID: 7109770960716897236}
   - component: {fileID: -698244882088399507}
+  - component: {fileID: 2175529948140941687}
   m_Layer: 0
   m_Name: yith
   m_TagString: Enemy
@@ -146,14 +147,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd1b77f586aba8044b3623aa3bb46828, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHitPoints: 3
-  hitPoints: 3
+  startingHitPoints: 4
+  hitPoints: 4
   movementSpeed: 1
   damage: 3
   character: {fileID: 0}
   OverlayTileContainer: {fileID: 0}
   characterTile: {fileID: 0}
   turnManager: {fileID: 0}
+  attackClip: {fileID: 8300000, guid: 67fdd2dbd01455943ae9d069876ea95e, type: 3}
   enemyTile: {fileID: 0}
   isMoving: 0
   fireDamage: 0
@@ -161,6 +163,8 @@ MonoBehaviour:
   movedTwice: 0
   movedThrice: 0
   reachedPlayer: 0
+  isEnemyTurn: 0
+  hasAttacked: 0
   speed: 0
   player: {fileID: 0}
 --- !u!95 &8336785661579735566
@@ -173,7 +177,7 @@ Animator:
   m_GameObject: {fileID: 7645168982931191190}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9119767219889562319, guid: 9cb725f0f72dd2c449af87a568f624dc, type: 3}
+  m_Controller: {fileID: 9100000, guid: 72eeeb67991aef142b35f29c22400324, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -246,3 +250,99 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.5}
   serializedVersion: 2
   m_Radius: 0.827
+--- !u!82 &2175529948140941687
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7645168982931191190}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 9a0cd48beac58a743992ddabb47b8a48, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 0.79
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

@@ -81,10 +81,32 @@ public class PlayerMove : MonoBehaviour
         audioSource.PlayOneShot(choice, volume);
     }
 
+    public void Molotov()
+    {
+        StartCoroutine(playSFX(sfx[1], 0.05f, 0.8f));
+    }
+
     public void ShootAnimation()   
     {
         animator.SetTrigger("Shoot");
-        StartCoroutine(playSFX(sfx[0], 1.36f, 0.7f));
+        StartCoroutine(playSFX(sfx[0], 1.36f, 1f));
+    }
+
+    public void WalkSFX(string option)
+    {
+        if (option == "start")
+        {
+            audioSource.clip = sfx[2];
+            audioSource.loop = true;
+            audioSource.Play(0);
+        }
+        else
+        {
+            audioSource.Pause();
+            audioSource.clip = null;
+            audioSource.loop = false;
+        }
+            
     }
     
     public void FlipDirection(int direction)

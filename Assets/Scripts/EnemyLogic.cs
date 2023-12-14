@@ -19,6 +19,8 @@ public class EnemyLogic : MonoBehaviour
     [SerializeField] private GameObject OverlayTileContainer;
     [SerializeField] private OverlayTile characterTile;
     [SerializeField] private TurnManager turnManager;
+    [SerializeField] private AudioClip attackClip;
+    private AudioSource audioSource;
     private PathFinder pathFinder;
     private RangeFinder rangeFinder;
     private List<OverlayTile> path;
@@ -31,6 +33,8 @@ public class EnemyLogic : MonoBehaviour
     public bool movedTwice = false;
     public bool movedThrice = false;
     public bool reachedPlayer = false;
+    public bool isEnemyTurn = false;
+    public bool hasAttacked = false;
     public float speed;
     public GameObject player;
     private Vector3 target;
@@ -39,8 +43,8 @@ public class EnemyLogic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         hitPoints = startingHitPoints;
     }
 
@@ -48,7 +52,7 @@ public class EnemyLogic : MonoBehaviour
     {
         if (target != null)
         {
-            yield return new WaitForSeconds(1.2f);
+            yield return new WaitForSeconds(0.7f);
             isMoving = false;
             Debug.Log(this.name + " finished a move");
             if (movementSpeed >= 2 && movedTwice == false)
@@ -76,6 +80,12 @@ public class EnemyLogic : MonoBehaviour
             transform.localPosition -= new Vector3(0.06f, 0, 0);
             yield return new WaitForSeconds(0.01f);
         }
+    }
+
+    IEnumerator PlaySFX()
+    {
+        yield return new WaitForSeconds(0.8f);
+        audioSource.PlayOneShot(attackClip);
     }
 
     public void TakeDamage(int dmgValue)
@@ -167,10 +177,12 @@ public class EnemyLogic : MonoBehaviour
         else if (angleToPlayer >= 135 || angleToPlayer < -135)
         {
             target.x -= 1;
+            FlipDirection(-1);
         }
         else if ((angleToPlayer < 45 && angleToPlayer >= 0) || (angleToPlayer > -45 && angleToPlayer <= 0))
         {
             target.x += 1;
+            FlipDirection(1);
         }
         else if (angleToPlayer >= 45 && angleToPlayer < 135)
         {
@@ -182,9 +194,41 @@ public class EnemyLogic : MonoBehaviour
 
     private void Attack()
     {
-        Debug.Log("Attack");
-        animator.SetTrigger("Attack");
-        player = GameObject.Find("hamilton(Clone)");
-        player.GetComponent<CharacterInfo>().TakeHit(damage);
+        if (isEnemyTurn == true && !hasAttacked)
+        {
+            Debug.Log("Attack");
+            StartCoroutine(PlaySFX());
+            animator.SetTrigger("Attack");
+            player = GameObject.Find("hamilton(Clone)");
+            player.GetComponent<CharacterInfo>().TakeHit(damage);
+            hasAttacked = true;
+            
+        }
+    }
+
+    public void FlipDirection(int direction)
+    {
+        if (this.name == "mi-go(Clone)" || this.name == "yith(Clone)" || this.name == "ghoul(Clone)")
+        {
+            if (direction == -1)
+            {
+                transform.eulerAngles = new Vector3(0, 0, 0);
+            }
+            else if (direction == 1)
+            {
+                transform.eulerAngles = new Vector3(0, 180, 0);
+            }
+        }
+        else
+        {
+            if (direction == -1)
+            {
+                transform.eulerAngles = new Vector3(0, 180, 0);
+            }
+            else if (direction == 1)
+            {
+                transform.eulerAngles = new Vector3(0, 0, 0);
+            }
+        }
     }
 }
