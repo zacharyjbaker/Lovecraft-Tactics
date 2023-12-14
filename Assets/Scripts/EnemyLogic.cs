@@ -52,6 +52,7 @@ public class EnemyLogic : MonoBehaviour
     {
         if (target != null)
         {
+            // Note: Framerate dependent for MacOS/Windows. Use 0.7f on Windows and 1f on MacOS.
             yield return new WaitForSeconds(0.7f);
             isMoving = false;
             Debug.Log(this.name + " finished a move");
@@ -144,6 +145,7 @@ public class EnemyLogic : MonoBehaviour
     {
         if (isMoving)
         {
+            // Note: Framerate dependent for MacOS/Windows. Use 0.004f on Windows and 0.008f on MacOS.
             this.transform.position = Vector3.MoveTowards(this.transform.position, target, 0.004f);
         }
     }
